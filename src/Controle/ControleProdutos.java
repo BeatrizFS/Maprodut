@@ -26,4 +26,8 @@ public class ControleProdutos {
     public boolean salvarProdutosControle(Produtos modelProdutos) {
         return this.dAOProdutos.salvarProdutosDAO(modelProdutos);
     }
+
+    public List<Produtos> getListaProdutosControle() {
+        return this.dAOProdutos.getListaProdutosDAO();
+    }
 }

@@ -8,6 +8,9 @@ package Frame;
 import Controle.ControleProdutos;
 import Model.Produtos;
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,7 +20,7 @@ public class TelaCadProd extends javax.swing.JFrame {
     
     Produtos modelProdutos = new Produtos();
     ControleProdutos controleProdutos = new ControleProdutos();
-    
+    List<Produtos> listaProdutos = new ArrayList<>();
     
     
     /**
@@ -25,6 +28,7 @@ public class TelaCadProd extends javax.swing.JFrame {
      */
     public TelaCadProd() {
         initComponents();
+        carregarProdutos();
     }
 
     /**
@@ -324,6 +328,7 @@ public class TelaCadProd extends javax.swing.JFrame {
         if(controleProdutos.salvarProdutosControle(modelProdutos)){
             JOptionPane.showMessageDialog(this, "Cadastro realizado", "Atenção", JOptionPane.INFORMATION_MESSAGE);
             limparFormularioProduto();
+            carregarProdutos();
         }else{
             JOptionPane.showMessageDialog(this, "Erro ao cadastrar", "Erro", JOptionPane.ERROR_MESSAGE);
         }
@@ -341,6 +346,24 @@ public class TelaCadProd extends javax.swing.JFrame {
         BarraPreco.setText("");
         BarraQuantidade.setText("");
     }
+    
+    private void carregarProdutos(){
+        listaProdutos = controleProdutos.getListaProdutosControle();
+        DefaultTableModel modelo4 = (DefaultTableModel) tblproduto.getModel();
+        modelo4.setNumRows(0);
+        
+        for (int i = 0; i < listaProdutos.size(); i++){
+            modelo4.addRow(new Object[]{
+                listaProdutos.get(i).getProId(),
+                listaProdutos.get(i).getProEmpresa(),
+                listaProdutos.get(i).getProDescricao(),
+                listaProdutos.get(i).getProMarca(),
+                listaProdutos.get(i).getProPreco(),
+                listaProdutos.get(i).getProQuat()
+            });
+        }
+    }   
+    
     
     private void BarraPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BarraPrecoActionPerformed
         // TODO add your handling code here:

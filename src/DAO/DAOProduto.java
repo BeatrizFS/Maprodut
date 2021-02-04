@@ -10,11 +10,11 @@ import conexao.ConexaoSQLite;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-//import java.util.ArrayList;
-//import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-//import java.sql.ResultSet;
+import java.sql.ResultSet;
 
 /**
  *
@@ -46,6 +46,41 @@ public class DAOProduto extends ConexaoSQLite{
         
         desconectar();
         return true;
+    }
+    public List<Produtos> getListaProdutosDAO(){
+        List<Produtos> listaProdutos = new ArrayList<>();
+        Produtos modelProdutos = new Produtos();
+        conectar();
+        ResultSet resultSet = null;
+        PreparedStatement preparedStatement = null;
+        
+        String sql = "SELECT pk_pro_is, "
+                +"pro_empresa, "
+                +"pro_descricao, "
+                +"pro_marca, "
+                +"pro_preco, "
+                +"pro_quantidade "
+                +" FROM tbl_produto";
+        
+        try{
+            preparedStatement = criarPreparedStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                modelProdutos = new Produtos();
+                modelProdutos.setProId(resultSet.getInt("pk_pro_id"));
+                modelProdutos.setProEmpresa(resultSet.getString("pro_empresa"));
+                modelProdutos.setProDescricao(resultSet.getString("pro_descricao"));
+                modelProdutos.setProMarca(resultSet.getString("pro_marca"));
+                modelProdutos.setProPreco(resultSet.getDouble("pro_preco"));
+                modelProdutos.setProQuat(resultSet.getInt("pro_quantidade"));
+                listaProdutos.add(modelProdutos);
+            }
+        }catch (Exception ex){
+            System.err.println(ex);
+        }
+        desconectar();
+        return listaProdutos;
+        
     }
     
 }
