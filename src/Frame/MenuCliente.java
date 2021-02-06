@@ -41,23 +41,31 @@ public class MenuCliente extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         CdtUsu = new javax.swing.JScrollPane();
         txtCdtUsu = new javax.swing.JTextPane();
-        txtNomeUsu = new javax.swing.JTextField();
+        txtCodigoUsu = new javax.swing.JTextField();
         txtEmailUsu = new javax.swing.JTextField();
         txtCPFUsu = new javax.swing.JTextField();
         txtLoginUsu = new javax.swing.JTextField();
-        BarraNomeUsu = new javax.swing.JTextField();
+        BarraCodigoUsu = new javax.swing.JTextField();
         BarraEmailUsu = new javax.swing.JTextField();
-        BarraLoginUsu = new javax.swing.JTextField();
-        btnVoltar = new javax.swing.JButton();
-        btnPesquisarCliente = new javax.swing.JButton();
+        BarraPesquisaUsu = new javax.swing.JTextField();
+        btnSairCliente = new javax.swing.JButton();
+        btnSalvarCliente = new javax.swing.JButton();
         BarraCPFUsu = new javax.swing.JFormattedTextField();
         Tabela = new javax.swing.JScrollPane();
         tblcliente = new javax.swing.JTable();
-        btnExcluirCliente1 = new javax.swing.JButton();
-        BarraLoginUsu1 = new javax.swing.JTextField();
+        btnPesquisaCliente = new javax.swing.JButton();
         btnAtuaCliente1 = new javax.swing.JButton();
+        btnVoltar1 = new javax.swing.JButton();
+        btnExcluirCliente2 = new javax.swing.JButton();
+        txtNomeUsu1 = new javax.swing.JTextField();
+        BarraNomeUsu1 = new javax.swing.JTextField();
+        btnLimpaCliente1 = new javax.swing.JButton();
+        txtLoginUsu1 = new javax.swing.JTextField();
+        BarraLoginUsu = new javax.swing.JTextField();
+        BarraSenhaUsu1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menu Cliente");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -73,12 +81,12 @@ public class MenuCliente extends javax.swing.JFrame {
 
         jPanel1.add(CdtUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 330, 40));
 
-        txtNomeUsu.setEditable(false);
-        txtNomeUsu.setBackground(new java.awt.Color(255, 255, 255));
-        txtNomeUsu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        txtNomeUsu.setText("Nome:");
-        txtNomeUsu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.add(txtNomeUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 50, -1));
+        txtCodigoUsu.setEditable(false);
+        txtCodigoUsu.setBackground(new java.awt.Color(255, 255, 255));
+        txtCodigoUsu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtCodigoUsu.setText("Código:");
+        txtCodigoUsu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(txtCodigoUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 50, -1));
 
         txtEmailUsu.setEditable(false);
         txtEmailUsu.setBackground(new java.awt.Color(255, 255, 255));
@@ -102,49 +110,50 @@ public class MenuCliente extends javax.swing.JFrame {
         txtLoginUsu.setEditable(false);
         txtLoginUsu.setBackground(new java.awt.Color(255, 255, 255));
         txtLoginUsu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        txtLoginUsu.setText("Login:");
+        txtLoginUsu.setText("Senha:");
         txtLoginUsu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         txtLoginUsu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLoginUsuActionPerformed(evt);
             }
         });
-        jPanel1.add(txtLoginUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 50, -1));
+        jPanel1.add(txtLoginUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 50, -1));
 
-        BarraNomeUsu.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(BarraNomeUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 360, -1));
+        BarraCodigoUsu.setEditable(false);
+        BarraCodigoUsu.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(BarraCodigoUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 360, -1));
 
         BarraEmailUsu.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(BarraEmailUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 360, -1));
 
-        BarraLoginUsu.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(BarraLoginUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 190, -1));
+        BarraPesquisaUsu.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(BarraPesquisaUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 190, -1));
 
-        btnVoltar.setBackground(new java.awt.Color(255, 229, 77));
-        btnVoltar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnVoltar.setText("Voltar");
-        btnVoltar.setToolTipText("");
-        btnVoltar.setActionCommand("");
-        btnVoltar.setBorderPainted(false);
-        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+        btnSairCliente.setBackground(new java.awt.Color(255, 229, 77));
+        btnSairCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnSairCliente.setText("Sair");
+        btnSairCliente.setToolTipText("");
+        btnSairCliente.setActionCommand("");
+        btnSairCliente.setBorderPainted(false);
+        btnSairCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarActionPerformed(evt);
+                btnSairClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 20));
+        jPanel1.add(btnSairCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 450, 80, 20));
 
-        btnPesquisarCliente.setBackground(new java.awt.Color(255, 229, 77));
-        btnPesquisarCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnPesquisarCliente.setText("Pesquisar");
-        btnPesquisarCliente.setToolTipText("");
-        btnPesquisarCliente.setActionCommand("");
-        btnPesquisarCliente.setBorderPainted(false);
-        btnPesquisarCliente.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvarCliente.setBackground(new java.awt.Color(255, 229, 77));
+        btnSalvarCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnSalvarCliente.setText("Salvar");
+        btnSalvarCliente.setToolTipText("");
+        btnSalvarCliente.setActionCommand("");
+        btnSalvarCliente.setBorderPainted(false);
+        btnSalvarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarClienteActionPerformed(evt);
+                btnSalvarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPesquisarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, 90, 20));
+        jPanel1.add(btnSalvarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 80, 20));
 
         BarraCPFUsu.setBackground(new java.awt.Color(204, 204, 204));
         try {
@@ -168,25 +177,22 @@ public class MenuCliente extends javax.swing.JFrame {
 
         jPanel1.add(Tabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 620, 150));
 
-        btnExcluirCliente1.setBackground(new java.awt.Color(255, 229, 77));
-        btnExcluirCliente1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnExcluirCliente1.setText("Excluir");
-        btnExcluirCliente1.setToolTipText("");
-        btnExcluirCliente1.setActionCommand("");
-        btnExcluirCliente1.setBorderPainted(false);
-        btnExcluirCliente1.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisaCliente.setBackground(new java.awt.Color(255, 229, 77));
+        btnPesquisaCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnPesquisaCliente.setText("Pesquisar");
+        btnPesquisaCliente.setToolTipText("");
+        btnPesquisaCliente.setActionCommand("");
+        btnPesquisaCliente.setBorderPainted(false);
+        btnPesquisaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirCliente1ActionPerformed(evt);
+                btnPesquisaClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnExcluirCliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 80, 20));
-
-        BarraLoginUsu1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(BarraLoginUsu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 190, -1));
+        jPanel1.add(btnPesquisaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, 90, 20));
 
         btnAtuaCliente1.setBackground(new java.awt.Color(255, 229, 77));
         btnAtuaCliente1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnAtuaCliente1.setText("Atualizar");
+        btnAtuaCliente1.setText("Exibir informações");
         btnAtuaCliente1.setToolTipText("");
         btnAtuaCliente1.setActionCommand("");
         btnAtuaCliente1.setBorderPainted(false);
@@ -195,7 +201,79 @@ public class MenuCliente extends javax.swing.JFrame {
                 btnAtuaCliente1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAtuaCliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 90, 20));
+        jPanel1.add(btnAtuaCliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 140, 20));
+
+        btnVoltar1.setBackground(new java.awt.Color(255, 229, 77));
+        btnVoltar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnVoltar1.setText("Voltar");
+        btnVoltar1.setToolTipText("");
+        btnVoltar1.setActionCommand("");
+        btnVoltar1.setBorderPainted(false);
+        btnVoltar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltar1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVoltar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 20));
+
+        btnExcluirCliente2.setBackground(new java.awt.Color(255, 229, 77));
+        btnExcluirCliente2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnExcluirCliente2.setText("Excluir");
+        btnExcluirCliente2.setToolTipText("");
+        btnExcluirCliente2.setActionCommand("");
+        btnExcluirCliente2.setBorderPainted(false);
+        btnExcluirCliente2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirCliente2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnExcluirCliente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, 80, 20));
+
+        txtNomeUsu1.setEditable(false);
+        txtNomeUsu1.setBackground(new java.awt.Color(255, 255, 255));
+        txtNomeUsu1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtNomeUsu1.setText("Nome:");
+        txtNomeUsu1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(txtNomeUsu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 50, -1));
+
+        BarraNomeUsu1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(BarraNomeUsu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 360, -1));
+
+        btnLimpaCliente1.setBackground(new java.awt.Color(255, 229, 77));
+        btnLimpaCliente1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnLimpaCliente1.setText("Limpar");
+        btnLimpaCliente1.setToolTipText("");
+        btnLimpaCliente1.setActionCommand("");
+        btnLimpaCliente1.setBorderPainted(false);
+        btnLimpaCliente1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpaCliente1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLimpaCliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, 80, 20));
+
+        txtLoginUsu1.setEditable(false);
+        txtLoginUsu1.setBackground(new java.awt.Color(255, 255, 255));
+        txtLoginUsu1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtLoginUsu1.setText("Login:");
+        txtLoginUsu1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        txtLoginUsu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLoginUsu1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtLoginUsu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 50, -1));
+
+        BarraLoginUsu.setBackground(new java.awt.Color(204, 204, 204));
+        BarraLoginUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BarraLoginUsuActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BarraLoginUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 190, -1));
+
+        BarraSenhaUsu1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(BarraSenhaUsu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 190, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 480));
 
@@ -211,24 +289,26 @@ public class MenuCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLoginUsuActionPerformed
 
-    private void btnPesquisarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarClienteActionPerformed
+    private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
         // TODO add your handling code here:
         modelCliente = new Cliente();
-        modelCliente.setUsuNome(BarraNomeUsu.getText());
+        modelCliente.setUsuNome(BarraNomeUsu1.getText());
         modelCliente.setUsuEmail(BarraEmailUsu.getText());
         modelCliente.setUsuCPF(BarraCPFUsu.getText());
         modelCliente.setUsuLogin(BarraLoginUsu.getText());
+        modelCliente.setUsuSenha(String.valueOf(BarraSenhaUsu1.getPassword()));
         controleCliente.salvarClienteControle(modelCliente);
         formularioUsuVazio();
-    }//GEN-LAST:event_btnPesquisarClienteActionPerformed
+    }//GEN-LAST:event_btnSalvarClienteActionPerformed
 
     private void formularioUsuVazio(){
-        if((BarraNomeUsu.getText().length() > 0) 
+        if((BarraNomeUsu1.getText().length() > 0) 
                 && (BarraCPFUsu.getText().length() > 0)
                 && (BarraEmailUsu.getText().length() > 0)
                 && (BarraLoginUsu.getText().length() > 0)){
             JOptionPane.showMessageDialog(this, "Cadastro realizado!", "Atenção", JOptionPane.INFORMATION_MESSAGE);
             limparFormularioUsu();
+            carregarCliente();
         }else{
             JOptionPane.showMessageDialog(this, "Erro ao cadastrar!", "Erro", JOptionPane.ERROR_MESSAGE);
         }        
@@ -238,10 +318,12 @@ public class MenuCliente extends javax.swing.JFrame {
      * @param void 
      */
     private void limparFormularioUsu(){
-        BarraNomeUsu.setText("");
+        BarraCodigoUsu.setText("");
+        BarraNomeUsu1.setText("");
         BarraEmailUsu.setText("");
         BarraCPFUsu.setText("");
-        BarraLoginUsu.setText("");        
+        BarraLoginUsu.setText("");
+        BarraSenhaUsu1.setText("");
     }
     
     /**
@@ -258,24 +340,75 @@ public class MenuCliente extends javax.swing.JFrame {
                 listaCliente.get(i).getUsuNome(),
                 listaCliente.get(i).getUsuEmail(),
                 listaCliente.get(i).getUsuCPF(),
-                listaCliente.get(i).getUsuLogin()
+                listaCliente.get(i).getUsuLogin(),
             });
         }
     }
     
-    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+    private void btnSairClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairClienteActionPerformed
         // TODO add your handling code here:
-        TelaTipCad objeto5 = new TelaTipCad();
+        TelaLogin objeto5 = new TelaLogin();
         objeto5.setVisible(true);
-    }//GEN-LAST:event_btnVoltarActionPerformed
+    }//GEN-LAST:event_btnSairClienteActionPerformed
 
-    private void btnExcluirCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCliente1ActionPerformed
+    private void btnPesquisaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnExcluirCliente1ActionPerformed
+    }//GEN-LAST:event_btnPesquisaClienteActionPerformed
 
     private void btnAtuaCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtuaCliente1ActionPerformed
-        // TODO add your handling code here:
+        // Pegar o id e buscar noo banco
+        modelCliente = new Cliente();
+        int linha = tblcliente.getSelectedRow();
+        if (linha <0) {
+            JOptionPane.showMessageDialog(this, "Selecione um cliente!");
+        }else{
+            int codigo = (int) tblcliente.getValueAt(linha, 0);
+            modelCliente = controleCliente.getClienteControle(codigo);
+            BarraCodigoUsu.setText(String.valueOf(modelCliente.getUsuId()));
+            BarraNomeUsu1.setText(modelCliente.getUsuNome());
+            BarraEmailUsu.setText(modelCliente.getUsuEmail());
+            BarraCPFUsu.setText(modelCliente.getUsuCPF());
+            BarraLoginUsu.setText(modelCliente.getUsuLogin());
+            BarraSenhaUsu1.setText(modelCliente.getUsuSenha());        
+            
+            
+            
+            //JOptionPane.showMessageDialog(this, "Cliente atualizado!");
+        }        
     }//GEN-LAST:event_btnAtuaCliente1ActionPerformed
+
+    private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
+        // TODO add your handling code here:
+        TelaTipCad objeto1 = new TelaTipCad();
+        objeto1.setVisible(true);
+    }//GEN-LAST:event_btnVoltar1ActionPerformed
+
+    private void btnExcluirCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCliente2ActionPerformed
+        // TODO add your handling code here:
+        int linha = tblcliente.getSelectedRow();
+        if (linha <0) {
+            JOptionPane.showMessageDialog(this, "Selecione um cliente!");
+        }else{
+            int codigo = (int) tblcliente.getValueAt(linha, 0);
+            controleCliente.excluirClienteControle(codigo);
+            carregarCliente();
+            limparFormularioUsu();
+            JOptionPane.showMessageDialog(this, "Cliente excluido!");
+        }
+    }//GEN-LAST:event_btnExcluirCliente2ActionPerformed
+
+    private void btnLimpaCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpaCliente1ActionPerformed
+        // TODO add your handling code here:
+        limparFormularioUsu();
+    }//GEN-LAST:event_btnLimpaCliente1ActionPerformed
+
+    private void txtLoginUsu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginUsu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLoginUsu1ActionPerformed
+
+    private void BarraLoginUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BarraLoginUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BarraLoginUsuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,22 +450,29 @@ public class MenuCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField BarraCPFUsu;
+    private javax.swing.JTextField BarraCodigoUsu;
     private javax.swing.JTextField BarraEmailUsu;
     private javax.swing.JTextField BarraLoginUsu;
-    private javax.swing.JTextField BarraLoginUsu1;
-    private javax.swing.JTextField BarraNomeUsu;
+    private javax.swing.JTextField BarraNomeUsu1;
+    private javax.swing.JTextField BarraPesquisaUsu;
+    private javax.swing.JPasswordField BarraSenhaUsu1;
     private javax.swing.JScrollPane CdtUsu;
     private javax.swing.JScrollPane Tabela;
     private javax.swing.JButton btnAtuaCliente1;
-    private javax.swing.JButton btnExcluirCliente1;
-    private javax.swing.JButton btnPesquisarCliente;
-    private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton btnExcluirCliente2;
+    private javax.swing.JButton btnLimpaCliente1;
+    private javax.swing.JButton btnPesquisaCliente;
+    private javax.swing.JButton btnSairCliente;
+    private javax.swing.JButton btnSalvarCliente;
+    private javax.swing.JButton btnVoltar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTable tblcliente;
     private javax.swing.JTextField txtCPFUsu;
     private javax.swing.JTextPane txtCdtUsu;
+    private javax.swing.JTextField txtCodigoUsu;
     private javax.swing.JTextField txtEmailUsu;
     private javax.swing.JTextField txtLoginUsu;
-    private javax.swing.JTextField txtNomeUsu;
+    private javax.swing.JTextField txtLoginUsu1;
+    private javax.swing.JTextField txtNomeUsu1;
     // End of variables declaration//GEN-END:variables
 }

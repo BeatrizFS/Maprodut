@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
+
 /**
  *
  * @author beatr
@@ -21,8 +22,7 @@ public class TelaCadProd extends javax.swing.JFrame {
     Produtos modelProdutos = new Produtos();
     ControleProdutos controleProdutos = new ControleProdutos();
     List<Produtos> listaProdutos = new ArrayList<>();
-    
-    
+
     /**
      * Creates new form TelaCadUsu
      */
@@ -43,26 +43,23 @@ public class TelaCadProd extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         CdtProdut = new javax.swing.JScrollPane();
         txtCadProdut = new javax.swing.JTextPane();
+        Empresa = new javax.swing.JTextField();
         Codigo = new javax.swing.JTextField();
         Marca = new javax.swing.JTextField();
-        BarraPesquisa = new javax.swing.JTextField();
+        BarraEmpresa = new javax.swing.JTextField();
         BarraMarca = new javax.swing.JTextField();
         Tabela = new javax.swing.JScrollPane();
         tblproduto = new javax.swing.JTable();
-        Preco2 = new javax.swing.JTextField();
-        Preco = new javax.swing.JTextField();
-        btnSair2 = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
+        BarraPreco = new javax.swing.JTextField();
+        Preco3 = new javax.swing.JTextField();
+        btnVoltar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
         BarraCodigo = new javax.swing.JTextField();
-        EmpresaCadProd = new javax.swing.JTextField();
-        BarraEmpPro = new javax.swing.JTextField();
-        BarraPreco = new javax.swing.JTextField();
-        BarraQuantidade = new javax.swing.JTextField();
-        Produto1 = new javax.swing.JTextField();
+        Produto = new javax.swing.JTextField();
         BarraProduto = new javax.swing.JTextField();
-        btnVoltarProd = new javax.swing.JButton();
+        btnSair1 = new javax.swing.JButton();
+        btnNovoprod1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -78,6 +75,13 @@ public class TelaCadProd extends javax.swing.JFrame {
         CdtProdut.setViewportView(txtCadProdut);
 
         jPanel1.add(CdtProdut, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 330, 40));
+
+        Empresa.setEditable(false);
+        Empresa.setBackground(new java.awt.Color(255, 255, 255));
+        Empresa.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        Empresa.setText("Empresa:");
+        Empresa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(Empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 60, -1));
 
         Codigo.setEditable(false);
         Codigo.setBackground(new java.awt.Color(255, 255, 255));
@@ -103,8 +107,8 @@ public class TelaCadProd extends javax.swing.JFrame {
         });
         jPanel1.add(Marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 50, -1));
 
-        BarraPesquisa.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(BarraPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 200, -1));
+        BarraEmpresa.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(BarraEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 420, -1));
 
         BarraMarca.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(BarraMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 420, -1));
@@ -113,93 +117,48 @@ public class TelaCadProd extends javax.swing.JFrame {
         tblproduto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tblproduto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Código", "Empresa", "Produto", "Marca", "Preço", "Quantidade"
+                "Código", "Empresa", "Produto", "Marca", "Preço"
             }
         ));
         Tabela.setViewportView(tblproduto);
 
         jPanel1.add(Tabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 620, 150));
 
-        Preco2.setEditable(false);
-        Preco2.setBackground(new java.awt.Color(255, 255, 255));
-        Preco2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        Preco2.setText("Quantidade:");
-        Preco2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        Preco2.addActionListener(new java.awt.event.ActionListener() {
+        BarraPreco.setBackground(new java.awt.Color(204, 204, 204));
+        BarraPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Preco2ActionPerformed(evt);
+                BarraPrecoActionPerformed(evt);
             }
         });
-        jPanel1.add(Preco2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 80, -1));
+        jPanel1.add(BarraPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 170, -1));
 
-        Preco.setEditable(false);
-        Preco.setBackground(new java.awt.Color(255, 255, 255));
-        Preco.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        Preco.setText("Preço:");
-        Preco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        Preco.addActionListener(new java.awt.event.ActionListener() {
+        Preco3.setEditable(false);
+        Preco3.setBackground(new java.awt.Color(255, 255, 255));
+        Preco3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        Preco3.setText("Preço:");
+        Preco3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        Preco3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PrecoActionPerformed(evt);
+                Preco3ActionPerformed(evt);
             }
         });
-        jPanel1.add(Preco, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 50, -1));
+        jPanel1.add(Preco3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 50, -1));
 
-        btnSair2.setBackground(new java.awt.Color(255, 229, 77));
-        btnSair2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnSair2.setText("Sair");
-        btnSair2.setToolTipText("");
-        btnSair2.setActionCommand("");
-        btnSair2.setBorderPainted(false);
-        btnSair2.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltar.setBackground(new java.awt.Color(255, 229, 77));
+        btnVoltar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnVoltar.setText("Voltar");
+        btnVoltar.setToolTipText("");
+        btnVoltar.setActionCommand("");
+        btnVoltar.setBorderPainted(false);
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSair2ActionPerformed(evt);
+                btnVoltarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSair2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, 70, -1));
-
-        btnEditar.setBackground(new java.awt.Color(255, 229, 77));
-        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnEditar.setText("Atualizar");
-        btnEditar.setToolTipText("");
-        btnEditar.setActionCommand("");
-        btnEditar.setBorderPainted(false);
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 90, -1));
+        jPanel1.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 20));
 
         btnExcluir.setBackground(new java.awt.Color(255, 229, 77));
         btnExcluir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -212,7 +171,7 @@ public class TelaCadProd extends javax.swing.JFrame {
                 btnExcluirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 70, -1));
+        jPanel1.add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 70, -1));
 
         btnSalvar.setBackground(new java.awt.Color(255, 229, 77));
         btnSalvar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -225,60 +184,47 @@ public class TelaCadProd extends javax.swing.JFrame {
                 btnSalvarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 70, -1));
+        jPanel1.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 70, -1));
 
         BarraCodigo.setEditable(false);
         BarraCodigo.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(BarraCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 190, -1));
 
-        EmpresaCadProd.setEditable(false);
-        EmpresaCadProd.setBackground(new java.awt.Color(255, 255, 255));
-        EmpresaCadProd.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        EmpresaCadProd.setText("Empresa:");
-        EmpresaCadProd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.add(EmpresaCadProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 60, -1));
-
-        BarraEmpPro.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(BarraEmpPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 420, -1));
-
-        BarraPreco.setBackground(new java.awt.Color(204, 204, 204));
-        BarraPreco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BarraPrecoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BarraPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 170, -1));
-
-        BarraQuantidade.setBackground(new java.awt.Color(204, 204, 204));
-        BarraQuantidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BarraQuantidadeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BarraQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 60, -1));
-
-        Produto1.setEditable(false);
-        Produto1.setBackground(new java.awt.Color(255, 255, 255));
-        Produto1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        Produto1.setText("Produto:");
-        Produto1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.add(Produto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 60, -1));
+        Produto.setEditable(false);
+        Produto.setBackground(new java.awt.Color(255, 255, 255));
+        Produto.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        Produto.setText("Produto:");
+        Produto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(Produto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 60, -1));
 
         BarraProduto.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(BarraProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 420, -1));
 
-        btnVoltarProd.setBackground(new java.awt.Color(255, 229, 77));
-        btnVoltarProd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnVoltarProd.setText("Voltar");
-        btnVoltarProd.setToolTipText("");
-        btnVoltarProd.setActionCommand("");
-        btnVoltarProd.setBorderPainted(false);
-        btnVoltarProd.addActionListener(new java.awt.event.ActionListener() {
+        btnSair1.setBackground(new java.awt.Color(255, 229, 77));
+        btnSair1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnSair1.setText("Sair");
+        btnSair1.setToolTipText("");
+        btnSair1.setActionCommand("");
+        btnSair1.setBorderPainted(false);
+        btnSair1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarProdActionPerformed(evt);
+                btnSair1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVoltarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 20));
+        jPanel1.add(btnSair1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, 70, -1));
+
+        btnNovoprod1.setBackground(new java.awt.Color(255, 229, 77));
+        btnNovoprod1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnNovoprod1.setText("Exibir informações");
+        btnNovoprod1.setToolTipText("");
+        btnNovoprod1.setActionCommand("");
+        btnNovoprod1.setBorderPainted(false);
+        btnNovoprod1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoprod1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnNovoprod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 480));
 
@@ -294,57 +240,47 @@ public class TelaCadProd extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CodigoActionPerformed
 
-    private void Preco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Preco2ActionPerformed
+    private void Preco3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Preco3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Preco2ActionPerformed
+    }//GEN-LAST:event_Preco3ActionPerformed
 
-    private void PrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecoActionPerformed
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PrecoActionPerformed
-
-    private void btnSair2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSair2ActionPerformed
-        // TODO add your handling code here:
-        TelaLogin objeto8 = new TelaLogin();
-        objeto8.setVisible(true);
-    }//GEN-LAST:event_btnSair2ActionPerformed
-
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditarActionPerformed
+        TelaTipCad objeto7 = new TelaTipCad();
+        objeto7.setVisible(true);
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnExcluirActionPerformed
-
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
-        modelProdutos = new Produtos();
-        modelProdutos.setProEmpresa(BarraEmpPro.getText());
-        modelProdutos.setProDescricao(BarraProduto.getText());
-        modelProdutos.setProMarca(BarraMarca.getText());
-        modelProdutos.setProPreco(Double.parseDouble(BarraPreco.getText()));
-        modelProdutos.setProQuat(Integer.valueOf(BarraQuantidade.getText()));
-        if(controleProdutos.salvarProdutosControle(modelProdutos)){
-            JOptionPane.showMessageDialog(this, "Cadastro realizado", "Atenção", JOptionPane.INFORMATION_MESSAGE);
-            limparFormularioProduto();
-            carregarProdutos();
+        int linha = tblproduto.getSelectedRow();
+        if (linha <0){
+            JOptionPane.showMessageDialog(this, "Selecione um produto!");
         }else{
-            JOptionPane.showMessageDialog(this, "Erro ao cadastrar", "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-
-    }//GEN-LAST:event_btnSalvarActionPerformed
+            int codigo = (int) tblproduto.getValueAt(linha, 0);
+            controleProdutos.excluirProdutosControle(codigo);
+            carregarProdutos();
+            limparFormularioPro();
+            JOptionPane.showMessageDialog(this, "Produto excluido!");
+        }        
+    }//GEN-LAST:event_btnExcluirActionPerformed
     
-     /**
-     * Limpar formúlario de cadastro de produtos
-     * @param void 
-     */
-    private void limparFormularioProduto(){
-        BarraEmpPro.setText("");
+    private void formularioProVazio(){
+        if((BarraEmpresa.getText().length()>0)
+            && (BarraProduto.getText().length()>0)){
+        JOptionPane.showMessageDialog(this, "Cadastro realizado!", "Atenção", JOptionPane.INFORMATION_MESSAGE);
+        controleProdutos.salvarProdutosControle(modelProdutos);
+        carregarProdutos();
+        limparFormularioPro();            
+        }else{
+            JOptionPane.showMessageDialog(this, "Erro ao cadastrar!", "Erro", JOptionPane.ERROR_MESSAGE);                        
+        }
+    }
+    
+    private void limparFormularioPro(){
+        BarraEmpresa.setText("");
         BarraProduto.setText("");
         BarraMarca.setText("");
         BarraPreco.setText("");
-        BarraQuantidade.setText("");
     }
     
     private void carregarProdutos(){
@@ -356,28 +292,49 @@ public class TelaCadProd extends javax.swing.JFrame {
             modelo4.addRow(new Object[]{
                 listaProdutos.get(i).getProId(),
                 listaProdutos.get(i).getProEmpresa(),
-                listaProdutos.get(i).getProDescricao(),
                 listaProdutos.get(i).getProMarca(),
-                listaProdutos.get(i).getProPreco(),
-                listaProdutos.get(i).getProQuat()
+                listaProdutos.get(i).getProPreco()
             });
         }
-    }   
+        
+    }
     
-    
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        // TODO add your handling code here:
+        modelProdutos = new Produtos();
+        modelProdutos.setProEmpresa(BarraEmpresa.getText());
+        modelProdutos.setProDescricao(BarraProduto.getText());
+        modelProdutos.setProMarca(BarraMarca.getText());
+        modelProdutos.setProPreco(Double.parseDouble(BarraPreco.getText()));
+        formularioProVazio();
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
     private void BarraPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BarraPrecoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BarraPrecoActionPerformed
 
-    private void BarraQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BarraQuantidadeActionPerformed
+    private void btnSair1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSair1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BarraQuantidadeActionPerformed
-
-    private void btnVoltarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarProdActionPerformed
-        // TODO add your handling code here:
-        TelaTipCad objeto9 = new TelaTipCad();
+        TelaLogin objeto9 = new TelaLogin();
         objeto9.setVisible(true);
-    }//GEN-LAST:event_btnVoltarProdActionPerformed
+    }//GEN-LAST:event_btnSair1ActionPerformed
+
+    private void btnNovoprod1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoprod1ActionPerformed
+        // TODO add your handling code here:
+        modelProdutos = new Produtos();
+        int linha = tblproduto.getSelectedRow();
+        if (linha <0) {
+           JOptionPane.showMessageDialog(this, "Selecione um produto!"); 
+        }else{
+            int codigo = (int) tblproduto.getValueAt(linha, 0);
+            modelProdutos = controleProdutos.getProdutosControle(codigo);
+            BarraCodigo.setText(String.valueOf(modelProdutos.getProId()));
+            BarraEmpresa.setText(modelProdutos.getProEmpresa());
+            BarraProduto.setText(modelProdutos.getProDescricao());
+            BarraMarca.setText(modelProdutos.getProMarca());
+            BarraPreco.setText(String.valueOf(modelProdutos.getProPreco()));        
+        }
+    }//GEN-LAST:event_btnNovoprod1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -417,25 +374,22 @@ public class TelaCadProd extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField BarraCodigo;
-    private javax.swing.JTextField BarraEmpPro;
+    private javax.swing.JTextField BarraEmpresa;
     private javax.swing.JTextField BarraMarca;
-    private javax.swing.JTextField BarraPesquisa;
     private javax.swing.JTextField BarraPreco;
     private javax.swing.JTextField BarraProduto;
-    private javax.swing.JTextField BarraQuantidade;
     private javax.swing.JScrollPane CdtProdut;
     private javax.swing.JTextField Codigo;
-    private javax.swing.JTextField EmpresaCadProd;
+    private javax.swing.JTextField Empresa;
     private javax.swing.JTextField Marca;
-    private javax.swing.JTextField Preco;
-    private javax.swing.JTextField Preco2;
-    private javax.swing.JTextField Produto1;
+    private javax.swing.JTextField Preco3;
+    private javax.swing.JTextField Produto;
     private javax.swing.JScrollPane Tabela;
-    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
-    private javax.swing.JButton btnSair2;
+    private javax.swing.JButton btnNovoprod1;
+    private javax.swing.JButton btnSair1;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JButton btnVoltarProd;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTable tblproduto;
     private javax.swing.JTextPane txtCadProdut;

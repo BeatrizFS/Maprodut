@@ -5,17 +5,27 @@
  */
 package Frame;
 
+import Controle.ControleProdutos;
+import Model.Produtos;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author beatr
  */
 public class TelaPesquisa extends javax.swing.JFrame {
+    
+    ControleProdutos controleProdutos = new ControleProdutos();
+    List<Produtos> listaProdutos = new ArrayList<>();
 
     /**
      * Creates new form TelaCadUsu
      */
     public TelaPesquisa() {
         initComponents();
+        carregarProdutos();
     }
 
     /**
@@ -36,7 +46,7 @@ public class TelaPesquisa extends javax.swing.JFrame {
         BarraProduto = new javax.swing.JTextField();
         BarraMarca = new javax.swing.JTextField();
         Tabela = new javax.swing.JScrollPane();
-        TabProd = new javax.swing.JTable();
+        TabPesProdC = new javax.swing.JTable();
         BarraCodigo = new javax.swing.JTextField();
         btnPesquisar = new javax.swing.JButton();
         btnPesqEnd = new javax.swing.JButton();
@@ -94,19 +104,19 @@ public class TelaPesquisa extends javax.swing.JFrame {
         BarraMarca.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(BarraMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 420, -1));
 
-        TabProd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        TabProd.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        TabProd.setModel(new javax.swing.table.DefaultTableModel(
+        TabPesProdC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        TabPesProdC.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        TabPesProdC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Empresa", "Código", "Produto", "Marca", "Preço"
+                "Código", "Empresa", "Produto", "Marca", "Preço"
             }
         ));
-        Tabela.setViewportView(TabProd);
-        if (TabProd.getColumnModel().getColumnCount() > 0) {
-            TabProd.getColumnModel().getColumn(0).setResizable(false);
+        Tabela.setViewportView(TabPesProdC);
+        if (TabPesProdC.getColumnModel().getColumnCount() > 0) {
+            TabPesProdC.getColumnModel().getColumn(1).setResizable(false);
         }
 
         jPanel1.add(Tabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 620, 150));
@@ -172,15 +182,31 @@ public class TelaPesquisa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnPesqEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesqEndActionPerformed
-        // TODO add your handling code here:
-        TelaLogin objeto9 = new TelaLogin();
-        objeto9.setVisible(true);
+        // TODO add your handling code here:        
     }//GEN-LAST:event_btnPesqEndActionPerformed
 
     private void btnsair2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsair2ActionPerformed
         // TODO add your handling code here:
+        TelaLogin objeto9 = new TelaLogin();
+        objeto9.setVisible(true);
     }//GEN-LAST:event_btnsair2ActionPerformed
-
+    
+    private void carregarProdutos(){
+        listaProdutos = controleProdutos.getListaProdutosControle();
+        DefaultTableModel modelo4 = (DefaultTableModel) TabPesProdC.getModel();
+        modelo4.setNumRows(0);
+        
+        for (int i = 0; i < listaProdutos.size(); i++){
+            modelo4.addRow(new Object[]{
+                listaProdutos.get(i).getProId(),
+                listaProdutos.get(i).getProEmpresa(),
+                listaProdutos.get(i).getProMarca(),
+                listaProdutos.get(i).getProPreco()
+            });
+        }
+        
+    }    
+    
     /**
      * @param args the command line arguments
      */
@@ -227,7 +253,7 @@ public class TelaPesquisa extends javax.swing.JFrame {
     private javax.swing.JTextField Marca;
     private javax.swing.JScrollPane PesProdut;
     private javax.swing.JTextField Produto;
-    private javax.swing.JTable TabProd;
+    private javax.swing.JTable TabPesProdC;
     private javax.swing.JScrollPane Tabela;
     private javax.swing.JButton btnPesqEnd;
     private javax.swing.JButton btnPesquisar;

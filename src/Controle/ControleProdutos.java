@@ -5,7 +5,7 @@
  */
 package Controle;
 
-import DAO.DAOProduto;
+import DAO.DAOProdutos;
 import Model.Produtos;
 import java.util.List;
 
@@ -15,19 +15,22 @@ import java.util.List;
  */
 public class ControleProdutos {
     
-    DAOProduto dAOProdutos = new DAOProduto();
-    
-    /**
-     * salva um novo produto no banco de dados
-     * @param modelProdutos
-     * @return boolean
-     */
+    DAOProdutos dAOProdutos = new DAOProdutos();
+
+    public boolean excluirProdutosControle(int codigo) {
+        return this.dAOProdutos.excluirProdutosDAO(codigo);
+    }
 
     public boolean salvarProdutosControle(Produtos modelProdutos) {
-        return this.dAOProdutos.salvarProdutosDAO(modelProdutos);
+        return this.dAOProdutos.salvarProdutoDAO(modelProdutos);
     }
 
     public List<Produtos> getListaProdutosControle() {
         return this.dAOProdutos.getListaProdutosDAO();
     }
+
+    public Produtos getProdutosControle(int pCodigo) {
+        return this.dAOProdutos.getProdutosDAO(pCodigo);
+    }
+           
 }

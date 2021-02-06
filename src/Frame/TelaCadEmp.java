@@ -50,7 +50,7 @@ public class TelaCadEmp extends javax.swing.JFrame {
         BarraEmailEmp = new javax.swing.JTextField();
         txtCNPJ = new javax.swing.JTextField();
         txtDadoEmp = new javax.swing.JTextField();
-        txtNomeEmp = new javax.swing.JTextField();
+        txtCogigoEmp = new javax.swing.JTextField();
         BarraNomeEmp = new javax.swing.JTextField();
         txtCidadeEmp = new javax.swing.JTextField();
         txtBairro = new javax.swing.JTextField();
@@ -59,7 +59,7 @@ public class TelaCadEmp extends javax.swing.JFrame {
         BarraUF = new javax.swing.JTextField();
         txtEndereco = new javax.swing.JTextField();
         BarraEndereco = new javax.swing.JTextField();
-        btnVoltarTip = new javax.swing.JButton();
+        btnSairEmp = new javax.swing.JButton();
         txtNumeroEmp = new javax.swing.JTextField();
         BarraFoneEmp = new javax.swing.JFormattedTextField();
         BarraCnpj = new javax.swing.JFormattedTextField();
@@ -68,9 +68,13 @@ public class TelaCadEmp extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmpresas = new javax.swing.JTable();
         btnAtuaCadEmp = new javax.swing.JButton();
-        btnExcluirCadEmp = new javax.swing.JButton();
+        btnLimparEmp = new javax.swing.JButton();
         BarraPesqEmp = new javax.swing.JTextField();
         btnPesqCadEmp = new javax.swing.JButton();
+        btnVoltarTip1 = new javax.swing.JButton();
+        btnExcluirCadEmp1 = new javax.swing.JButton();
+        txtNomeEmp1 = new javax.swing.JTextField();
+        BarraCodEmp = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -146,12 +150,12 @@ public class TelaCadEmp extends javax.swing.JFrame {
         txtDadoEmp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel1.add(txtDadoEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 150, -1));
 
-        txtNomeEmp.setEditable(false);
-        txtNomeEmp.setBackground(new java.awt.Color(255, 255, 255));
-        txtNomeEmp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        txtNomeEmp.setText("Nome:");
-        txtNomeEmp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.add(txtNomeEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 50, -1));
+        txtCogigoEmp.setEditable(false);
+        txtCogigoEmp.setBackground(new java.awt.Color(255, 255, 255));
+        txtCogigoEmp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtCogigoEmp.setText("Código:");
+        txtCogigoEmp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(txtCogigoEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 50, -1));
 
         BarraNomeEmp.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(BarraNomeEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 360, -1));
@@ -213,18 +217,18 @@ public class TelaCadEmp extends javax.swing.JFrame {
         });
         jPanel1.add(BarraEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 360, -1));
 
-        btnVoltarTip.setBackground(new java.awt.Color(255, 229, 77));
-        btnVoltarTip.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnVoltarTip.setText("Voltar");
-        btnVoltarTip.setToolTipText("");
-        btnVoltarTip.setActionCommand("");
-        btnVoltarTip.setBorderPainted(false);
-        btnVoltarTip.addActionListener(new java.awt.event.ActionListener() {
+        btnSairEmp.setBackground(new java.awt.Color(255, 229, 77));
+        btnSairEmp.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnSairEmp.setText("Sair");
+        btnSairEmp.setToolTipText("");
+        btnSairEmp.setActionCommand("");
+        btnSairEmp.setBorderPainted(false);
+        btnSairEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarTipActionPerformed(evt);
+                btnSairEmpActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVoltarTip, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 20));
+        jPanel1.add(btnSairEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 510, 80, 20));
 
         txtNumeroEmp.setEditable(false);
         txtNumeroEmp.setBackground(new java.awt.Color(255, 255, 255));
@@ -294,7 +298,7 @@ public class TelaCadEmp extends javax.swing.JFrame {
 
         btnAtuaCadEmp.setBackground(new java.awt.Color(255, 229, 77));
         btnAtuaCadEmp.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnAtuaCadEmp.setText("Atualizar");
+        btnAtuaCadEmp.setText("Exibir informações");
         btnAtuaCadEmp.setToolTipText("");
         btnAtuaCadEmp.setActionCommand("");
         btnAtuaCadEmp.setBorderPainted(false);
@@ -303,20 +307,20 @@ public class TelaCadEmp extends javax.swing.JFrame {
                 btnAtuaCadEmpActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAtuaCadEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 90, 20));
+        jPanel1.add(btnAtuaCadEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 140, 20));
 
-        btnExcluirCadEmp.setBackground(new java.awt.Color(255, 229, 77));
-        btnExcluirCadEmp.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnExcluirCadEmp.setText("Excluir");
-        btnExcluirCadEmp.setToolTipText("");
-        btnExcluirCadEmp.setActionCommand("");
-        btnExcluirCadEmp.setBorderPainted(false);
-        btnExcluirCadEmp.addActionListener(new java.awt.event.ActionListener() {
+        btnLimparEmp.setBackground(new java.awt.Color(255, 229, 77));
+        btnLimparEmp.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnLimparEmp.setText("Limpar");
+        btnLimparEmp.setToolTipText("");
+        btnLimparEmp.setActionCommand("");
+        btnLimparEmp.setBorderPainted(false);
+        btnLimparEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirCadEmpActionPerformed(evt);
+                btnLimparEmpActionPerformed(evt);
             }
         });
-        jPanel1.add(btnExcluirCadEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 90, 20));
+        jPanel1.add(btnLimparEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 90, 20));
 
         BarraPesqEmp.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(BarraPesqEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, 250, -1));
@@ -333,6 +337,42 @@ public class TelaCadEmp extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnPesqCadEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 90, 20));
+
+        btnVoltarTip1.setBackground(new java.awt.Color(255, 229, 77));
+        btnVoltarTip1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnVoltarTip1.setText("Voltar");
+        btnVoltarTip1.setToolTipText("");
+        btnVoltarTip1.setActionCommand("");
+        btnVoltarTip1.setBorderPainted(false);
+        btnVoltarTip1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarTip1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVoltarTip1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 20));
+
+        btnExcluirCadEmp1.setBackground(new java.awt.Color(255, 229, 77));
+        btnExcluirCadEmp1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnExcluirCadEmp1.setText("Excluir");
+        btnExcluirCadEmp1.setToolTipText("");
+        btnExcluirCadEmp1.setActionCommand("");
+        btnExcluirCadEmp1.setBorderPainted(false);
+        btnExcluirCadEmp1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirCadEmp1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnExcluirCadEmp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 90, 20));
+
+        txtNomeEmp1.setEditable(false);
+        txtNomeEmp1.setBackground(new java.awt.Color(255, 255, 255));
+        txtNomeEmp1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtNomeEmp1.setText("Nome:");
+        txtNomeEmp1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(txtNomeEmp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 50, -1));
+
+        BarraCodEmp.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(BarraCodEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 100, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 530));
 
@@ -372,11 +412,11 @@ public class TelaCadEmp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BarraEnderecoActionPerformed
     
-    private void btnVoltarTipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarTipActionPerformed
+    private void btnSairEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairEmpActionPerformed
         // TODO add your handling code here:
-        TelaTipCad objeto5 = new TelaTipCad();
+        TelaLogin objeto5 = new TelaLogin();
         objeto5.setVisible(true);
-    }//GEN-LAST:event_btnVoltarTipActionPerformed
+    }//GEN-LAST:event_btnSairEmpActionPerformed
 
     private void txtNumeroEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroEmpActionPerformed
         // TODO add your handling code here:
@@ -412,15 +452,56 @@ public class TelaCadEmp extends javax.swing.JFrame {
 
     private void btnAtuaCadEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtuaCadEmpActionPerformed
         // TODO add your handling code here:
+        modelEmpresa = new Empresa();
+        int linha = tblEmpresas.getSelectedRow();
+                if (linha <0) {
+            JOptionPane.showMessageDialog(this, "Selecione uma empresa!");
+        }else{
+            int codigo = (int) tblEmpresas.getValueAt(linha, 0);
+            modelEmpresa = controleEmpresa.getEmpresaControle(codigo);
+            BarraCodEmp.setText(String.valueOf(modelEmpresa.getEmpId()));
+            BarraNomeEmp.setText(modelEmpresa.getEmpNome());
+            BarraEmailEmp.setText(modelEmpresa.getEmpEmail());
+            BarraFoneEmp.setText(modelEmpresa.getEmpFone());
+            BarraCnpj.setText(modelEmpresa.getEmpCNPJ());
+            BarraEndereco.setText(modelEmpresa.getEmpEnd());
+            BarraBairro.setText(modelEmpresa.getEmpBairro());
+            BarraCidade.setText(modelEmpresa.getEmpCidade());
+            BarraNumero.setText(modelEmpresa.getEmpNumero());
+            BarraUF.setText(modelEmpresa.getEmpEstado());        
+                    
+        }
+
     }//GEN-LAST:event_btnAtuaCadEmpActionPerformed
 
-    private void btnExcluirCadEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCadEmpActionPerformed
+    private void btnLimparEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparEmpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnExcluirCadEmpActionPerformed
+        limparFormularioEmp();
+    }//GEN-LAST:event_btnLimparEmpActionPerformed
 
     private void btnPesqCadEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesqCadEmpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPesqCadEmpActionPerformed
+
+    private void btnVoltarTip1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarTip1ActionPerformed
+        // TODO add your handling code here:
+        TelaTipCad objeto7 = new TelaTipCad();
+        objeto7.setVisible(true);
+    }//GEN-LAST:event_btnVoltarTip1ActionPerformed
+
+    private void btnExcluirCadEmp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCadEmp1ActionPerformed
+        // TODO add your handling code here:
+        int linha = tblEmpresas.getSelectedRow();
+        if (linha <0){
+            JOptionPane.showMessageDialog(this, "Selecione uma empresa!");
+        }else{
+            int codigo = (int) tblEmpresas.getValueAt(linha, 0);
+            controleEmpresa.excluirEmpresaControle(codigo);
+            carregarEmpresa();
+            limparFormularioEmp();
+            JOptionPane.showMessageDialog(this, "Empresa excluida!");
+        }
+    }//GEN-LAST:event_btnExcluirCadEmp1ActionPerformed
 
     private void formularioEmpVazio(){
         if((BarraNomeEmp.getText().length() > 0)
@@ -519,6 +600,7 @@ public class TelaCadEmp extends javax.swing.JFrame {
     private javax.swing.JTextField BarraBairro;
     private javax.swing.JTextField BarraCidade;
     private javax.swing.JFormattedTextField BarraCnpj;
+    private javax.swing.JTextField BarraCodEmp;
     private javax.swing.JTextField BarraEmailEmp;
     private javax.swing.JTextField BarraEndereco;
     private javax.swing.JFormattedTextField BarraFoneEmp;
@@ -529,10 +611,12 @@ public class TelaCadEmp extends javax.swing.JFrame {
     private javax.swing.JScrollPane CdtEmp;
     private javax.swing.JTextField UF;
     private javax.swing.JButton btnAtuaCadEmp;
-    private javax.swing.JButton btnExcluirCadEmp;
+    private javax.swing.JButton btnExcluirCadEmp1;
     private javax.swing.JButton btnFinalizar1;
+    private javax.swing.JButton btnLimparEmp;
     private javax.swing.JButton btnPesqCadEmp;
-    private javax.swing.JButton btnVoltarTip;
+    private javax.swing.JButton btnSairEmp;
+    private javax.swing.JButton btnVoltarTip1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblEmpresas;
@@ -540,11 +624,12 @@ public class TelaCadEmp extends javax.swing.JFrame {
     private javax.swing.JTextField txtCNPJ;
     private javax.swing.JTextPane txtCadEmp;
     private javax.swing.JTextField txtCidadeEmp;
+    private javax.swing.JTextField txtCogigoEmp;
     private javax.swing.JTextField txtDadoEmp;
     private javax.swing.JTextField txtEmailEmp;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtFoneEmp;
-    private javax.swing.JTextField txtNomeEmp;
+    private javax.swing.JTextField txtNomeEmp1;
     private javax.swing.JTextField txtNumeroEmp;
     // End of variables declaration//GEN-END:variables
 }

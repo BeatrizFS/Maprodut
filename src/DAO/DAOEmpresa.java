@@ -97,4 +97,79 @@ public class DAOEmpresa extends ConexaoSQLite{
         desconectar();
         return listaEmpresa;
     }
+    /**
+     * Exclui uma empresa do banco de dados pelo codigo
+     * @param pCodigo
+     * @return boolean 
+     */
+    public boolean excluirEmpresaDAO(int pCodigo){
+        conectar();
+        PreparedStatement preparedStatement;
+        String sql = "DELETE FROM tbl_empresa WHERE pk_emp_id = '"+pCodigo+"'";
+        preparedStatement = this.criarPreparedStatement(sql);
+        try{
+            preparedStatement.executeUpdate();            
+        }catch (SQLException ex) {
+            Logger.getLogger(DAOEmpresa.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+            return false;
+        }finally{
+            if(preparedStatement != null) {
+                try{
+                    preparedStatement.close();                    
+                }catch (SQLException ex) {
+                   Logger.getLogger(DAOEmpresa.class.getName()).log(Level.SEVERE, null, ex);
+                   ex.printStackTrace();
+                }
+            }
+        }
+        this.desconectar();
+        return true;
+    }
+    public Empresa getEmpresaDAO(int pCodigoEmpresa){
+        Empresa modelEmpresa = new Empresa();
+        conectar();
+        ResultSet resultSet = null;
+        PreparedStatement preparedStatement = null;
+        
+        String sql = "SELECT pk_emp_id, "
+                +"emp_nome, "
+                +"emp_email, "
+                +"emp_fone, "
+                +"emp_cnpj, "
+                +"emp_end, "
+                +"emp_bairro, "
+                +"emp_cidade, "
+                +"emp_numero, "
+                +"emp_estado "
+                +" FROM tbl_empresa WHERE pk_emp_id = '"+pCodigoEmpresa+"'";
+        
+        preparedStatement = criarPreparedStatement(sql);
+        try{
+            resultSet = preparedStatement.executeQuery();
+            
+            while (resultSet.next()){
+                modelEmpresa= new Empresa();
+                modelEmpresa.setEmpId(resultSet.getInt("pk_emp_id"));
+                modelEmpresa.setEmpNome(resultSet.getString("emp_nome"));
+                modelEmpresa.setEmpEmail(resultSet.getString("emp_email"));
+                modelEmpresa.setEmpFone(resultSet.getString("emp_fone"));
+                modelEmpresa.setEmpCNPJ(resultSet.getString("emp_cnpj"));
+                modelEmpresa.setEmpEnd(resultSet.getString("emp_end"));
+                modelEmpresa.setEmpBairro(resultSet.getString("emp_bairro"));
+                modelEmpresa.setEmpCidade(resultSet.getString("emp_cidade"));
+                modelEmpresa.setEmpNumero(resultSet.getString("emp_numero"));
+                modelEmpresa.setEmpEstado(resultSet.getString("emp_estado"));
+    
+            }
+            
+        }catch (SQLException ex) {
+            Logger.getLogger(DAOCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (Exception e) {
+            System.err.println(e);
+        }
+        desconectar();
+        return modelEmpresa;
+    }    
+
 }

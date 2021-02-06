@@ -29,6 +29,17 @@ public class ControleCliente {
     public List<Cliente> getListaClienteControle() {
         return this.dAOCliente.getListaClienteDAO();
     }
-    
+
+    public boolean excluirClienteControle(int pCodigo) {
+        return this.dAOCliente.excluirUsuarioDAO(pCodigo);
+    }    
+
+    public Cliente getClienteControle(int pCodigo) {
+        return this.dAOCliente.getClienteDAO(pCodigo);
+    }
+
+    public boolean validarClienteController(Cliente cliente) {
+        return this.dAOCliente.validarCliente(cliente);
+    }
     
 }

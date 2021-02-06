@@ -29,6 +29,14 @@ public class ControleEmpresa {
     public List<Empresa> getListaEmpresaControle() {
         return this.dAOEmpresa.getListaEmpresaDAO();
     }
+
+    public boolean excluirEmpresaControle(int codigo) {
+        return this.dAOEmpresa.excluirEmpresaDAO(codigo);
+    }
+
+    public Empresa getEmpresaControle(int pCodigo) {
+        return this.dAOEmpresa.getEmpresaDAO(pCodigo);
+    }
     
     
 }

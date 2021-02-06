@@ -108,13 +108,12 @@ public class TelaTipCad extends javax.swing.JFrame {
 
     private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
         // TODO add your handling code here:
-        TelaCadProd objeto7 = new TelaCadProd(); //Criei uma instância que gera um objeto
-        objeto7.setVisible(true); //Através do objeto solicitei abrir de Cadastro de produtos
+        
     }//GEN-LAST:event_btnProdutosActionPerformed
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
         // TODO add your handling code here:
-        TelaCadUsu1 objeto3 = new TelaCadUsu1();
+        MenuCliente objeto3 = new MenuCliente();
         objeto3.setVisible(true);
     }//GEN-LAST:event_btnClienteActionPerformed
 
@@ -127,6 +126,8 @@ public class TelaTipCad extends javax.swing.JFrame {
 
     private void btnEmpresa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpresa1ActionPerformed
         // TODO add your handling code here:
+        TelaCadEmp objeto8 = new TelaCadEmp();
+        objeto8.setVisible(true);
     }//GEN-LAST:event_btnEmpresa1ActionPerformed
 
     /**
