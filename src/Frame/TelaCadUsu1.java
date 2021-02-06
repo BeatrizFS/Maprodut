@@ -50,6 +50,7 @@ public class TelaCadUsu1 extends javax.swing.JFrame {
         BarraCPFUsu = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de Cliente");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -161,7 +162,7 @@ public class TelaCadUsu1 extends javax.swing.JFrame {
         }
         jPanel1.add(BarraCPFUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 250, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 480));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 530));
 
         pack();
         setLocationRelativeTo(null);

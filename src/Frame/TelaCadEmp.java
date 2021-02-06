@@ -6,6 +6,7 @@
 package Frame;
 
 import Controle.ControleEmpresa;
+import DAO.DAOEmpresa;
 import Model.Empresa;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
@@ -77,6 +78,7 @@ public class TelaCadEmp extends javax.swing.JFrame {
         BarraCodEmp = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de Empresa");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -481,8 +483,31 @@ public class TelaCadEmp extends javax.swing.JFrame {
 
     private void btnPesqCadEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesqCadEmpActionPerformed
         // TODO add your handling code here:
+        pesquisarEndEmpresa(BarraPesqEmp.getText());
     }//GEN-LAST:event_btnPesqCadEmpActionPerformed
-
+    
+    private void pesquisarEndEmpresa(String empresa){
+        DefaultTableModel modelo4 = (DefaultTableModel) tblEmpresas.getModel();
+        modelo4.setNumRows(0);
+        DAOEmpresa pdao = new DAOEmpresa();
+       
+        for(Empresa e: pdao.readForEmpresa(empresa)){
+           
+            modelo4.addRow(new Object[]{
+                e.getEmpId(),
+                e.getEmpNome(),
+                e.getEmpEmail(),
+                e.getEmpFone(),
+                e.getEmpCNPJ(),
+                e.getEmpEnd(),
+                e.getEmpBairro(),
+                e.getEmpCidade(),
+                e.getEmpNumero(),
+                e.getEmpEstado()
+            });
+        }    
+    }
+    
     private void btnVoltarTip1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarTip1ActionPerformed
         // TODO add your handling code here:
         TelaTipCad objeto7 = new TelaTipCad();
@@ -516,6 +541,7 @@ public class TelaCadEmp extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Cadastro realizado!", "Atenção", JOptionPane.INFORMATION_MESSAGE);
             controleEmpresa.salvarEmpresaControle(modelEmpresa);
             limparFormularioEmp();
+            carregarEmpresa();
         }else{
             JOptionPane.showMessageDialog(this, "Erro ao cadastrar!", "Erro", JOptionPane.ERROR_MESSAGE);            
         }
@@ -526,6 +552,7 @@ public class TelaCadEmp extends javax.swing.JFrame {
      * @param void 
      */
     private void limparFormularioEmp(){
+        BarraCodEmp.setText("");
         BarraNomeEmp.setText("");
         BarraEmailEmp.setText("");
         BarraFoneEmp.setText("");

@@ -141,7 +141,7 @@ public class MenuCliente extends javax.swing.JFrame {
                 btnSairClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSairCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 450, 80, 20));
+        jPanel1.add(btnSairCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 490, 80, 20));
 
         btnSalvarCliente.setBackground(new java.awt.Color(255, 229, 77));
         btnSalvarCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -176,7 +176,7 @@ public class MenuCliente extends javax.swing.JFrame {
         ));
         Tabela.setViewportView(tblcliente);
 
-        jPanel1.add(Tabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 620, 150));
+        jPanel1.add(Tabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 620, 190));
 
         btnPesquisaCliente.setBackground(new java.awt.Color(255, 229, 77));
         btnPesquisaCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -276,7 +276,7 @@ public class MenuCliente extends javax.swing.JFrame {
         BarraSenhaUsu1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(BarraSenhaUsu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 190, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 480));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 530));
 
         pack();
         setLocationRelativeTo(null);

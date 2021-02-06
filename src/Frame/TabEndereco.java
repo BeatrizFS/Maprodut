@@ -6,6 +6,7 @@
 package Frame;
 
 import Controle.ControleEmpresa;
+import DAO.DAOEmpresa;
 import Model.Empresa;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,13 +68,14 @@ public class TabEndereco extends javax.swing.JFrame {
         BarraNumero = new javax.swing.JTextField();
         Tabela = new javax.swing.JScrollPane();
         tblPesquisaEmp = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        BarraPesEndEMp = new javax.swing.JTextField();
         btnPesquisaEmp1 = new javax.swing.JButton();
         btnExibirInfEmp1 = new javax.swing.JButton();
         txtNomeEmp1 = new javax.swing.JTextField();
         BarraCodEmp = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Localizar Empresa");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -86,7 +88,7 @@ public class TabEndereco extends javax.swing.JFrame {
         txtCadEmp.setText("            Localizar Empresa ");
         CdtEmp.setViewportView(txtCadEmp);
 
-        jPanel1.add(CdtEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 330, 40));
+        jPanel1.add(CdtEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 330, 40));
 
         txtEmailEmp.setEditable(false);
         txtEmailEmp.setBackground(new java.awt.Color(255, 255, 255));
@@ -98,7 +100,7 @@ public class TabEndereco extends javax.swing.JFrame {
                 txtEmailEmpActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEmailEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 50, -1));
+        jPanel1.add(txtEmailEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 50, -1));
 
         txtFoneEmp.setEditable(false);
         txtFoneEmp.setBackground(new java.awt.Color(255, 255, 255));
@@ -110,7 +112,7 @@ public class TabEndereco extends javax.swing.JFrame {
                 txtFoneEmpActionPerformed(evt);
             }
         });
-        jPanel1.add(txtFoneEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 60, -1));
+        jPanel1.add(txtFoneEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 60, -1));
 
         BarraCidade.setBackground(new java.awt.Color(204, 204, 204));
         BarraCidade.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +120,7 @@ public class TabEndereco extends javax.swing.JFrame {
                 BarraCidadeActionPerformed(evt);
             }
         });
-        jPanel1.add(BarraCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 480, 140, -1));
+        jPanel1.add(BarraCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 140, -1));
 
         BarraNomeEmp.setBackground(new java.awt.Color(204, 204, 204));
         BarraNomeEmp.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +128,7 @@ public class TabEndereco extends javax.swing.JFrame {
                 BarraNomeEmpActionPerformed(evt);
             }
         });
-        jPanel1.add(BarraNomeEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 360, -1));
+        jPanel1.add(BarraNomeEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 360, -1));
 
         txtCNPJ.setEditable(false);
         txtCNPJ.setBackground(new java.awt.Color(255, 255, 255));
@@ -138,31 +140,31 @@ public class TabEndereco extends javax.swing.JFrame {
                 txtCNPJActionPerformed(evt);
             }
         });
-        jPanel1.add(txtCNPJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, 50, -1));
+        jPanel1.add(txtCNPJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, 50, -1));
 
         txtDadoEmp.setEditable(false);
         txtDadoEmp.setBackground(new java.awt.Color(255, 255, 255));
         txtDadoEmp.setFont(new java.awt.Font("Tahoma", 3, 15)); // NOI18N
         txtDadoEmp.setText("Dados da Empresa");
         txtDadoEmp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.add(txtDadoEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 150, -1));
+        jPanel1.add(txtDadoEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 150, -1));
 
         txtCodigoEmp.setEditable(false);
         txtCodigoEmp.setBackground(new java.awt.Color(255, 255, 255));
         txtCodigoEmp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtCodigoEmp.setText("Código:");
         txtCodigoEmp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.add(txtCodigoEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 50, -1));
+        jPanel1.add(txtCodigoEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 50, -1));
 
         BarraEmailEmp.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(BarraEmailEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 360, -1));
+        jPanel1.add(BarraEmailEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 360, -1));
 
         txtCidadeEmp.setEditable(false);
         txtCidadeEmp.setBackground(new java.awt.Color(255, 255, 255));
         txtCidadeEmp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtCidadeEmp.setText("Cidade:");
         txtCidadeEmp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.add(txtCidadeEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, 50, -1));
+        jPanel1.add(txtCidadeEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 50, -1));
 
         txtBairro.setEditable(false);
         txtBairro.setBackground(new java.awt.Color(255, 255, 255));
@@ -174,7 +176,7 @@ public class TabEndereco extends javax.swing.JFrame {
                 txtBairroActionPerformed(evt);
             }
         });
-        jPanel1.add(txtBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 50, -1));
+        jPanel1.add(txtBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 50, -1));
 
         BarraBairro.setBackground(new java.awt.Color(204, 204, 204));
         BarraBairro.addActionListener(new java.awt.event.ActionListener() {
@@ -182,7 +184,7 @@ public class TabEndereco extends javax.swing.JFrame {
                 BarraBairroActionPerformed(evt);
             }
         });
-        jPanel1.add(BarraBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 170, -1));
+        jPanel1.add(BarraBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 170, -1));
 
         UF.setEditable(false);
         UF.setBackground(new java.awt.Color(255, 255, 255));
@@ -194,7 +196,7 @@ public class TabEndereco extends javax.swing.JFrame {
                 UFActionPerformed(evt);
             }
         });
-        jPanel1.add(UF, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 480, 30, -1));
+        jPanel1.add(UF, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 460, 30, -1));
 
         BarraUF.setBackground(new java.awt.Color(204, 204, 204));
         BarraUF.addActionListener(new java.awt.event.ActionListener() {
@@ -202,14 +204,14 @@ public class TabEndereco extends javax.swing.JFrame {
                 BarraUFActionPerformed(evt);
             }
         });
-        jPanel1.add(BarraUF, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 480, 60, -1));
+        jPanel1.add(BarraUF, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 460, 60, -1));
 
         txtEndereco.setEditable(false);
         txtEndereco.setBackground(new java.awt.Color(255, 255, 255));
         txtEndereco.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtEndereco.setText("Endereço:");
         txtEndereco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.add(txtEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 70, -1));
+        jPanel1.add(txtEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 70, -1));
 
         BarraEndereco.setBackground(new java.awt.Color(204, 204, 204));
         BarraEndereco.addActionListener(new java.awt.event.ActionListener() {
@@ -217,7 +219,7 @@ public class TabEndereco extends javax.swing.JFrame {
                 BarraEnderecoActionPerformed(evt);
             }
         });
-        jPanel1.add(BarraEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, 360, -1));
+        jPanel1.add(BarraEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 360, -1));
 
         btnVoltarTip.setBackground(new java.awt.Color(255, 229, 77));
         btnVoltarTip.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -243,7 +245,7 @@ public class TabEndereco extends javax.swing.JFrame {
                 btnSairLocEmpActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSairLocEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 520, 80, 20));
+        jPanel1.add(btnSairLocEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 500, 80, 20));
 
         txtNumeroEmp.setEditable(false);
         txtNumeroEmp.setBackground(new java.awt.Color(255, 255, 255));
@@ -255,7 +257,7 @@ public class TabEndereco extends javax.swing.JFrame {
                 txtNumeroEmpActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNumeroEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 30, -1));
+        jPanel1.add(txtNumeroEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 460, 30, 20));
 
         BarraFoneEmp.setBackground(new java.awt.Color(204, 204, 204));
         try {
@@ -263,7 +265,7 @@ public class TabEndereco extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jPanel1.add(BarraFoneEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 240, -1));
+        jPanel1.add(BarraFoneEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 240, -1));
 
         BarraCnpj.setBackground(new java.awt.Color(204, 204, 204));
         try {
@@ -276,7 +278,7 @@ public class TabEndereco extends javax.swing.JFrame {
                 BarraCnpjActionPerformed(evt);
             }
         });
-        jPanel1.add(BarraCnpj, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 250, -1));
+        jPanel1.add(BarraCnpj, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 250, -1));
 
         BarraNumero.setBackground(new java.awt.Color(204, 204, 204));
         BarraNumero.addActionListener(new java.awt.event.ActionListener() {
@@ -284,7 +286,7 @@ public class TabEndereco extends javax.swing.JFrame {
                 BarraNumeroActionPerformed(evt);
             }
         });
-        jPanel1.add(BarraNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 480, 60, -1));
+        jPanel1.add(BarraNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 60, -1));
 
         tblPesquisaEmp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tblPesquisaEmp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -298,10 +300,15 @@ public class TabEndereco extends javax.swing.JFrame {
         ));
         Tabela.setViewportView(tblPesquisaEmp);
 
-        jPanel1.add(Tabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 680, 170));
+        jPanel1.add(Tabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 680, 170));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 450, -1));
+        BarraPesEndEMp.setBackground(new java.awt.Color(204, 204, 204));
+        BarraPesEndEMp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BarraPesEndEMpActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BarraPesEndEMp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 450, -1));
 
         btnPesquisaEmp1.setBackground(new java.awt.Color(255, 229, 77));
         btnPesquisaEmp1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -314,7 +321,7 @@ public class TabEndereco extends javax.swing.JFrame {
                 btnPesquisaEmp1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPesquisaEmp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 150, 20));
+        jPanel1.add(btnPesquisaEmp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 150, 20));
 
         btnExibirInfEmp1.setBackground(new java.awt.Color(255, 229, 77));
         btnExibirInfEmp1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -327,19 +334,24 @@ public class TabEndereco extends javax.swing.JFrame {
                 btnExibirInfEmp1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnExibirInfEmp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 150, 20));
+        jPanel1.add(btnExibirInfEmp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 150, 20));
 
         txtNomeEmp1.setEditable(false);
         txtNomeEmp1.setBackground(new java.awt.Color(255, 255, 255));
         txtNomeEmp1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtNomeEmp1.setText("Nome:");
         txtNomeEmp1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.add(txtNomeEmp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 50, -1));
+        jPanel1.add(txtNomeEmp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 50, -1));
 
         BarraCodEmp.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(BarraCodEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 150, -1));
+        BarraCodEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BarraCodEmpActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BarraCodEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 150, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 550));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 530));
 
         pack();
         setLocationRelativeTo(null);
@@ -448,8 +460,34 @@ public class TabEndereco extends javax.swing.JFrame {
 
     private void btnPesquisaEmp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaEmp1ActionPerformed
         // TODO add your handling code here:
+        pesquisarEmpresa(BarraPesEndEMp.getText());
+        
     }//GEN-LAST:event_btnPesquisaEmp1ActionPerformed
+    
+        private void pesquisarEmpresa(String empresa){
+        DefaultTableModel modelo3 = (DefaultTableModel) tblPesquisaEmp.getModel();
+        modelo3.setNumRows(0);
+        DAOEmpresa pdao = new DAOEmpresa();
+       
+        for(Empresa e: pdao.readForEmpresa(empresa)){
+           
+            modelo3.addRow(new Object[]{
+                e.getEmpId(),
+                e.getEmpNome(),
+                e.getEmpEmail(),
+                e.getEmpFone(),
+                e.getEmpCNPJ(),
+                e.getEmpEnd(),
+                e.getEmpBairro(),
+                e.getEmpCidade(),
+                e.getEmpNumero(),
+                e.getEmpEstado()
+           });
+       }
 
+    }          
+    
+    
     private void btnExibirInfEmp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirInfEmp1ActionPerformed
         // TODO add your handling code here:
         modelEmpresa = new Empresa();
@@ -472,6 +510,14 @@ public class TabEndereco extends javax.swing.JFrame {
                     
         }
     }//GEN-LAST:event_btnExibirInfEmp1ActionPerformed
+
+    private void BarraPesEndEMpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BarraPesEndEMpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BarraPesEndEMpActionPerformed
+
+    private void BarraCodEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BarraCodEmpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BarraCodEmpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -581,6 +627,7 @@ public class TabEndereco extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField BarraFoneEmp;
     private javax.swing.JTextField BarraNomeEmp;
     private javax.swing.JTextField BarraNumero;
+    private javax.swing.JTextField BarraPesEndEMp;
     private javax.swing.JTextField BarraUF;
     private javax.swing.JScrollPane CdtEmp;
     private javax.swing.JScrollPane Tabela;
@@ -590,7 +637,6 @@ public class TabEndereco extends javax.swing.JFrame {
     private javax.swing.JButton btnSairLocEmp;
     private javax.swing.JButton btnVoltarTip;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tblPesquisaEmp;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCNPJ;

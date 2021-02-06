@@ -6,6 +6,7 @@
 package Frame;
 
 import Controle.ControleProdutos;
+import DAO.DAOProdutos;
 import Model.Produtos;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
@@ -51,7 +52,6 @@ public class TelaCadProd extends javax.swing.JFrame {
         Tabela = new javax.swing.JScrollPane();
         tblproduto = new javax.swing.JTable();
         BarraPreco = new javax.swing.JTextField();
-        Preco3 = new javax.swing.JTextField();
         btnVoltar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
@@ -59,9 +59,14 @@ public class TelaCadProd extends javax.swing.JFrame {
         Produto = new javax.swing.JTextField();
         BarraProduto = new javax.swing.JTextField();
         btnSair1 = new javax.swing.JButton();
-        btnNovoprod1 = new javax.swing.JButton();
+        btnExibiProd = new javax.swing.JButton();
+        Preco4 = new javax.swing.JTextField();
+        btnLimpar = new javax.swing.JButton();
+        BarraPesPro = new javax.swing.JTextField();
+        btnVoltar2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de produtos");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -125,7 +130,7 @@ public class TelaCadProd extends javax.swing.JFrame {
         ));
         Tabela.setViewportView(tblproduto);
 
-        jPanel1.add(Tabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 620, 150));
+        jPanel1.add(Tabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 620, 210));
 
         BarraPreco.setBackground(new java.awt.Color(204, 204, 204));
         BarraPreco.addActionListener(new java.awt.event.ActionListener() {
@@ -135,21 +140,9 @@ public class TelaCadProd extends javax.swing.JFrame {
         });
         jPanel1.add(BarraPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 170, -1));
 
-        Preco3.setEditable(false);
-        Preco3.setBackground(new java.awt.Color(255, 255, 255));
-        Preco3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        Preco3.setText("Preço:");
-        Preco3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        Preco3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Preco3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Preco3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 50, -1));
-
         btnVoltar.setBackground(new java.awt.Color(255, 229, 77));
         btnVoltar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnVoltar.setText("Voltar");
+        btnVoltar.setText("Pesquisar");
         btnVoltar.setToolTipText("");
         btnVoltar.setActionCommand("");
         btnVoltar.setBorderPainted(false);
@@ -158,7 +151,7 @@ public class TelaCadProd extends javax.swing.JFrame {
                 btnVoltarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 20));
+        jPanel1.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 100, 20));
 
         btnExcluir.setBackground(new java.awt.Color(255, 229, 77));
         btnExcluir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -211,22 +204,63 @@ public class TelaCadProd extends javax.swing.JFrame {
                 btnSair1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSair1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, 70, -1));
+        jPanel1.add(btnSair1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 500, 70, -1));
 
-        btnNovoprod1.setBackground(new java.awt.Color(255, 229, 77));
-        btnNovoprod1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnNovoprod1.setText("Exibir informações");
-        btnNovoprod1.setToolTipText("");
-        btnNovoprod1.setActionCommand("");
-        btnNovoprod1.setBorderPainted(false);
-        btnNovoprod1.addActionListener(new java.awt.event.ActionListener() {
+        btnExibiProd.setBackground(new java.awt.Color(255, 229, 77));
+        btnExibiProd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnExibiProd.setText("Exibir informações");
+        btnExibiProd.setToolTipText("");
+        btnExibiProd.setActionCommand("");
+        btnExibiProd.setBorderPainted(false);
+        btnExibiProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNovoprod1ActionPerformed(evt);
+                btnExibiProdActionPerformed(evt);
             }
         });
-        jPanel1.add(btnNovoprod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, -1));
+        jPanel1.add(btnExibiProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 480));
+        Preco4.setEditable(false);
+        Preco4.setBackground(new java.awt.Color(255, 255, 255));
+        Preco4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        Preco4.setText("Preço:");
+        Preco4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        Preco4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Preco4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Preco4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 50, -1));
+
+        btnLimpar.setBackground(new java.awt.Color(255, 229, 77));
+        btnLimpar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnLimpar.setText("Limpar");
+        btnLimpar.setToolTipText("");
+        btnLimpar.setActionCommand("");
+        btnLimpar.setBorderPainted(false);
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 80, 20));
+
+        BarraPesPro.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(BarraPesPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 290, -1));
+
+        btnVoltar2.setBackground(new java.awt.Color(255, 229, 77));
+        btnVoltar2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnVoltar2.setText("Voltar");
+        btnVoltar2.setToolTipText("");
+        btnVoltar2.setActionCommand("");
+        btnVoltar2.setBorderPainted(false);
+        btnVoltar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltar2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVoltar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 20));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 530));
 
         pack();
         setLocationRelativeTo(null);
@@ -240,16 +274,28 @@ public class TelaCadProd extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CodigoActionPerformed
 
-    private void Preco3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Preco3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Preco3ActionPerformed
-
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
-        TelaTipCad objeto7 = new TelaTipCad();
-        objeto7.setVisible(true);
+        pesquisarProduto(BarraPesPro.getText());
     }//GEN-LAST:event_btnVoltarActionPerformed
 
+    private void pesquisarProduto(String descricao){
+        DefaultTableModel modelo7 = (DefaultTableModel) tblproduto.getModel();
+        modelo7.setNumRows(0);
+        DAOProdutos pdao = new DAOProdutos();
+       
+        for(Produtos p: pdao.readForProdutos(descricao)){
+           
+            modelo7.addRow(new Object[]{
+                p.getProId(),
+                p.getProEmpresa(),
+                p.getProDescricao(),
+                p.getProMarca(),
+                p.getProPreco()
+            });
+        }    
+    }
+    
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
         int linha = tblproduto.getSelectedRow();
@@ -277,6 +323,7 @@ public class TelaCadProd extends javax.swing.JFrame {
     }
     
     private void limparFormularioPro(){
+        BarraCodigo.setText("");
         BarraEmpresa.setText("");
         BarraProduto.setText("");
         BarraMarca.setText("");
@@ -292,6 +339,7 @@ public class TelaCadProd extends javax.swing.JFrame {
             modelo4.addRow(new Object[]{
                 listaProdutos.get(i).getProId(),
                 listaProdutos.get(i).getProEmpresa(),
+                listaProdutos.get(i).getProDescricao(),
                 listaProdutos.get(i).getProMarca(),
                 listaProdutos.get(i).getProPreco()
             });
@@ -319,7 +367,7 @@ public class TelaCadProd extends javax.swing.JFrame {
         objeto9.setVisible(true);
     }//GEN-LAST:event_btnSair1ActionPerformed
 
-    private void btnNovoprod1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoprod1ActionPerformed
+    private void btnExibiProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibiProdActionPerformed
         // TODO add your handling code here:
         modelProdutos = new Produtos();
         int linha = tblproduto.getSelectedRow();
@@ -334,7 +382,20 @@ public class TelaCadProd extends javax.swing.JFrame {
             BarraMarca.setText(modelProdutos.getProMarca());
             BarraPreco.setText(String.valueOf(modelProdutos.getProPreco()));        
         }
-    }//GEN-LAST:event_btnNovoprod1ActionPerformed
+    }//GEN-LAST:event_btnExibiProdActionPerformed
+
+    private void Preco4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Preco4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Preco4ActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        // TODO add your handling code here:
+        limparFormularioPro();
+    }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void btnVoltar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltar2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -376,20 +437,23 @@ public class TelaCadProd extends javax.swing.JFrame {
     private javax.swing.JTextField BarraCodigo;
     private javax.swing.JTextField BarraEmpresa;
     private javax.swing.JTextField BarraMarca;
+    private javax.swing.JTextField BarraPesPro;
     private javax.swing.JTextField BarraPreco;
     private javax.swing.JTextField BarraProduto;
     private javax.swing.JScrollPane CdtProdut;
     private javax.swing.JTextField Codigo;
     private javax.swing.JTextField Empresa;
     private javax.swing.JTextField Marca;
-    private javax.swing.JTextField Preco3;
+    private javax.swing.JTextField Preco4;
     private javax.swing.JTextField Produto;
     private javax.swing.JScrollPane Tabela;
     private javax.swing.JButton btnExcluir;
-    private javax.swing.JButton btnNovoprod1;
+    private javax.swing.JButton btnExibiProd;
+    private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSair1;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton btnVoltar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTable tblproduto;
     private javax.swing.JTextPane txtCadProdut;

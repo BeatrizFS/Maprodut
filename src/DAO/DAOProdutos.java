@@ -134,5 +134,37 @@ public class DAOProdutos extends ConexaoSQLite {
         }
         desconectar();
         return modelProdutos;
-    }    
+    }
+        public List<Produtos> readForProdutos(String descricao){
+        conectar();    
+        Produtos modelProdutos = new Produtos();
+        ResultSet resultSet =null;
+        PreparedStatement preparedStatement = null;
+        List<Produtos> listaProdutos = new ArrayList<>();
+        
+        String sql = "SELECT pk_pro_id, "
+                +"pro_empresa, "
+                +"pro_descricao, "
+                +"pro_marca, "
+                +"pro_preco "
+                +" FROM tbl_produto WHERE pro_descricao LIKE ?";
+        try{
+            preparedStatement = criarPreparedStatement(sql);
+            preparedStatement.setString(1, "%"+descricao+"%");
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                modelProdutos = new Produtos();
+                modelProdutos.setProId(resultSet.getInt("pk_pro_id"));
+                modelProdutos.setProEmpresa(resultSet.getString("pro_empresa"));
+                modelProdutos.setProDescricao(resultSet.getString("pro_descricao"));
+                modelProdutos.setProMarca(resultSet.getString("pro_marca"));
+                modelProdutos.setProPreco(resultSet.getDouble("pro_preco"));
+                listaProdutos.add(modelProdutos);                                    
+            }
+        }catch (Exception ex) {
+            System.err.println(ex);
+        }
+        desconectar();
+        return listaProdutos;
+    }
 }

@@ -38,6 +38,7 @@ public class TelaTipCad extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tipo de Cadastro");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -55,7 +56,7 @@ public class TelaTipCad extends javax.swing.JFrame {
                 btnProdutosActionPerformed(evt);
             }
         });
-        EscCdt.add(btnProdutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 210, 50));
+        EscCdt.add(btnProdutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, 210, 50));
 
         btnCliente.setBackground(new java.awt.Color(255, 229, 77));
         btnCliente.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
@@ -68,7 +69,7 @@ public class TelaTipCad extends javax.swing.JFrame {
                 btnClienteActionPerformed(evt);
             }
         });
-        EscCdt.add(btnCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, 210, 50));
+        EscCdt.add(btnCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 210, 50));
 
         btnVoltar3.setBackground(new java.awt.Color(255, 229, 77));
         btnVoltar3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -98,9 +99,9 @@ public class TelaTipCad extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Logo2.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-        EscCdt.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-600, -100, -1, -1));
+        EscCdt.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-600, -110, -1, -1));
 
-        getContentPane().add(EscCdt, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 480));
+        getContentPane().add(EscCdt, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 530));
 
         pack();
         setLocationRelativeTo(null);
@@ -108,7 +109,8 @@ public class TelaTipCad extends javax.swing.JFrame {
 
     private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
         // TODO add your handling code here:
-        
+        TelaCadProd objeto3 = new TelaCadProd();
+        objeto3.setVisible(true);
     }//GEN-LAST:event_btnProdutosActionPerformed
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed

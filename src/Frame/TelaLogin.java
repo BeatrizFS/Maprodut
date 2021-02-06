@@ -50,12 +50,12 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jbSair = new javax.swing.JButton();
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Logo2.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -118,17 +118,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel7.setText("Para solicitar alterações no cadastro entre em contato: maprodut@gmail.com");
         EscCdt.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, -1, -1));
 
-        jbSair.setBackground(new java.awt.Color(255, 229, 77));
-        jbSair.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jbSair.setText("Sair");
-        jbSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSairActionPerformed(evt);
-            }
-        });
-        EscCdt.add(jbSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 447, -1, 20));
-
-        getContentPane().add(EscCdt, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 480));
+        getContentPane().add(EscCdt, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 530));
 
         pack();
         setLocationRelativeTo(null);
@@ -136,7 +126,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
         // TODO add your handling code here:
-        if(BarraUsu.getText().equals("Admin")&&BarraSenhaLogin.getText().equals("1234")){
+        if(BarraUsu.getText().equals("Admin")&&BarraSenhaLogin.getText().equals("12345")){
             
             JOptionPane.showMessageDialog(null, "Bem Vindo");
             TelaTipCad objeto1 = new TelaTipCad(); //Criei uma instância que gera um objeto
@@ -162,13 +152,6 @@ public class TelaLogin extends javax.swing.JFrame {
         TelaCadUsu1 objeto1 = new TelaCadUsu1(); //Criei uma instância que gera um objeto
         objeto1.setVisible(true);//Através do objeto solicitei abrir a TelaTipCad
     }//GEN-LAST:event_btnCadastrarActionPerformed
-
-    private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
-
-        System.exit(0);
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,7 +205,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JButton jbSair;
     // End of variables declaration//GEN-END:variables
 
 }
