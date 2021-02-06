@@ -101,5 +101,5 @@ public class Cliente {
     public void setUsuSenha(String usuSenha) {
         this.usuSenha = usuSenha;
     }
-    
+
 }

@@ -194,8 +194,40 @@ public class DAOCliente extends ConexaoSQLite {
             }
         }  
     }
-
-   
-        
     
-}    
+    public List<Cliente> readForNome(String nome){
+        conectar();
+        Cliente modelCliente = new Cliente();
+        ResultSet resultSet = null;
+        PreparedStatement preparedStatement = null;
+        List<Cliente> listaCliente = new ArrayList<>();
+        
+        String sql = "SELECT pk_usu_id, "
+                +"usu_nome, "
+                +"usu_email, "
+                +"usu_cpf, "
+                +"usu_login "
+                + " FROM tbl_cliente WHERE usu_nome LIKE ?";
+
+
+        try{
+            preparedStatement = criarPreparedStatement(sql);
+            preparedStatement.setString(1, "%"+nome+"%");
+            resultSet = preparedStatement.executeQuery();
+            
+            while (resultSet.next()) {
+                modelCliente = new Cliente();
+                modelCliente.setUsuId(resultSet.getInt("pk_usu_id"));
+                modelCliente.setUsuNome(resultSet.getString("usu_nome"));
+                modelCliente.setUsuEmail(resultSet.getString("usu_email"));
+                modelCliente.setUsuCPF(resultSet.getString("usu_cpf"));
+                modelCliente.setUsuLogin(resultSet.getString("usu_login"));
+                listaCliente.add(modelCliente);
+            }
+        }catch (Exception ex){
+            System.err.println(ex);
+        }
+        desconectar();
+        return listaCliente;
+    }
+}

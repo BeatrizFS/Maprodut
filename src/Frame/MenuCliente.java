@@ -6,6 +6,7 @@
 package Frame;
 
 import Controle.ControleCliente;
+import DAO.DAOCliente;
 import Model.Cliente;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
@@ -352,9 +353,29 @@ public class MenuCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairClienteActionPerformed
 
     private void btnPesquisaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaClienteActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
+        pesquisarCliente(BarraPesquisaUsu.getText());
+        
     }//GEN-LAST:event_btnPesquisaClienteActionPerformed
+    
+    private void pesquisarCliente(String nome){
+        DefaultTableModel modelo2 = (DefaultTableModel) tblcliente.getModel();
+        modelo2.setNumRows(0);
+        DAOCliente pdao = new DAOCliente();
+       
+        for(Cliente c: pdao.readForNome(nome)){
+           
+            modelo2.addRow(new Object[]{
+                c.getUsuId(),
+                c.getUsuNome(),
+                c.getUsuEmail(),
+                c.getUsuCPF(),
+                c.getUsuLogin()
+           });
+       }
 
+    }          
+    
     private void btnAtuaCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtuaCliente1ActionPerformed
         // Pegar o id e buscar noo banco
         modelCliente = new Cliente();
