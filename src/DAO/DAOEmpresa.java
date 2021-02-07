@@ -17,7 +17,13 @@ import java.util.List;
 import java.sql.ResultSet;
 
 /**
- *
+ * Utilizamos
+ * conectar(); para conectar com o banco de dados
+ * desconectar(); para desconectar com o bando de dados
+ */
+
+/**
+ * Herança
  * @author beatr
  */
 public class DAOEmpresa extends ConexaoSQLite{
@@ -55,7 +61,10 @@ public class DAOEmpresa extends ConexaoSQLite{
         desconectar();
         return true;
     }
-    
+   /**
+     * Faz com que os dados aparecam na tabela 
+     * ArrayLista
+     */    
     public List<Empresa> getListaEmpresaDAO(){
         List<Empresa> listaEmpresa = new ArrayList<>();
         Empresa modelEmpresa = new Empresa();
@@ -171,7 +180,11 @@ public class DAOEmpresa extends ConexaoSQLite{
         desconectar();
         return modelEmpresa;
     }
-    
+        /**
+     * Pesquisa os Empresa na tabela
+     * @param empresa
+     * @return 
+     */
     public List<Empresa> readForEmpresa(String empresa){
         conectar();
         Empresa modelEmpresa = new Empresa();

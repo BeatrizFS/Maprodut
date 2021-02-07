@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class TelaCadUsu1 extends javax.swing.JFrame {
 
-    Cliente modelCliente = new Cliente();
+    Cliente modelCliente = new Cliente(); //Criamos o objeto Cliente para executar os comandos necessários 
     ControleCliente controleCliente = new ControleCliente();
     /**
      * Creates new form TelaCadUsu
@@ -181,17 +181,20 @@ public class TelaCadUsu1 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLoginUsuActionPerformed
 
     private void btnFim2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFim2ActionPerformed
-        // TODO add your handling code here:
+
         modelCliente = new Cliente();
+        //Pegar as informações dos campos na tela e direciona para onde será salvo no BD
         modelCliente.setUsuNome(BarraNomeUsu.getText());
         modelCliente.setUsuEmail(BarraEmailUsu.getText());
         modelCliente.setUsuCPF(BarraCPFUsu.getText());
         modelCliente.setUsuLogin(BarraLoginUsu.getText());
         modelCliente.setUsuSenha(String.valueOf(BarraSenhaUsu.getPassword()));
-        //controleCliente.salvarClienteControle(modelCliente);
         formularioUsuVazio();
     }//GEN-LAST:event_btnFim2ActionPerformed
-
+    
+    /**
+     * Verificamos se os campos necessários estão preenchidos para salvar um novo cliente
+     */
     private void formularioUsuVazio(){
         if((BarraNomeUsu.getText().length() > 0) 
                 && (BarraCPFUsu.getText().length() > 0)
@@ -219,8 +222,9 @@ public class TelaCadUsu1 extends javax.swing.JFrame {
     
     private void btnVoltarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarLoginActionPerformed
         // TODO add your handling code here:
-        TelaLogin objeto3 = new TelaLogin();
-        objeto3.setVisible(true);
+        TelaLogin objeto3 = new TelaLogin(); //Criei uma instância que gera um objeto
+        objeto3.setVisible(true); 
+        dispose();
     }//GEN-LAST:event_btnVoltarLoginActionPerformed
 
     /**

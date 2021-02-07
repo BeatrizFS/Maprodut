@@ -6,11 +6,11 @@
 package Model;
 
 /**
- *
- * @author beatr
+ * Foi criada a classe Empresa  
+ * @author beatriz
  */
 public class Empresa {
-    
+    //Abaixo estão os atributos referentes a classe Empresa
     private int empId;
     private String empNome;
     private String empEmail;

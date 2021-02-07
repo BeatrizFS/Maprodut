@@ -125,7 +125,12 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
-        // TODO add your handling code here:
+        /**
+         * Login de Administrador 
+         * Login: Admin
+         * Senha: 12345
+         */
+    
         if(BarraUsu.getText().equals("Admin")&&BarraSenhaLogin.getText().equals("12345")){
             
             JOptionPane.showMessageDialog(null, "Bem Vindo");
@@ -134,7 +139,10 @@ public class TelaLogin extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Login inválido");
         }
-        
+    
+    /**
+     * Verificamos se o cliente está cadastrado no bando de dados
+     */    
      cliente.setUsuLogin(BarraUsu.getText());
      cliente.setUsuSenha(String.valueOf(BarraSenhaLogin.getPassword()));
      
@@ -151,6 +159,7 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaCadUsu1 objeto1 = new TelaCadUsu1(); //Criei uma instância que gera um objeto
         objeto1.setVisible(true);//Através do objeto solicitei abrir a TelaTipCad
+        dispose(); //Fecha a tela de login
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**

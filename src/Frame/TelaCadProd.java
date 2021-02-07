@@ -365,6 +365,7 @@ public class TelaCadProd extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaLogin objeto9 = new TelaLogin();
         objeto9.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnSair1ActionPerformed
 
     private void btnExibiProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibiProdActionPerformed
@@ -395,6 +396,9 @@ public class TelaCadProd extends javax.swing.JFrame {
 
     private void btnVoltar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar2ActionPerformed
         // TODO add your handling code here:
+        TelaCadProd objeto9 = new TelaCadProd();
+        objeto9.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnVoltar2ActionPerformed
 
     /**

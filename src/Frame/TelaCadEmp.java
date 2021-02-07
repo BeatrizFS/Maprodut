@@ -418,6 +418,7 @@ public class TelaCadEmp extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaLogin objeto5 = new TelaLogin();
         objeto5.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnSairEmpActionPerformed
 
     private void txtNumeroEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroEmpActionPerformed
@@ -438,6 +439,7 @@ public class TelaCadEmp extends javax.swing.JFrame {
 
     private void btnFinalizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizar1ActionPerformed
         // TODO add your handling code here:
+        //Salvar a empresa
         modelEmpresa = new Empresa();
         modelEmpresa.setEmpNome(BarraNomeEmp.getText());
         modelEmpresa.setEmpEmail(BarraEmailEmp.getText());
@@ -454,6 +456,7 @@ public class TelaCadEmp extends javax.swing.JFrame {
 
     private void btnAtuaCadEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtuaCadEmpActionPerformed
         // TODO add your handling code here:
+        //Exibi a empresa
         modelEmpresa = new Empresa();
         int linha = tblEmpresas.getSelectedRow();
                 if (linha <0) {
@@ -512,10 +515,12 @@ public class TelaCadEmp extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaTipCad objeto7 = new TelaTipCad();
         objeto7.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnVoltarTip1ActionPerformed
 
     private void btnExcluirCadEmp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCadEmp1ActionPerformed
         // TODO add your handling code here:
+        //Exclui empresa
         int linha = tblEmpresas.getSelectedRow();
         if (linha <0){
             JOptionPane.showMessageDialog(this, "Selecione uma empresa!");

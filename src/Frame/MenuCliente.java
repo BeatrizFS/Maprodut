@@ -283,17 +283,18 @@ public class MenuCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtCPFUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFUsuActionPerformed
-        // TODO add your handling code here:
+        // Texto de CPF do Usuário
     }//GEN-LAST:event_txtCPFUsuActionPerformed
 
     private void txtLoginUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginUsuActionPerformed
-        // TODO add your handling code here:
+        // Texto de Login do Usuário
     }//GEN-LAST:event_txtLoginUsuActionPerformed
 
     private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
-        // TODO add your handling code here:
-        modelCliente = new Cliente();
-        modelCliente.setUsuNome(BarraNomeUsu1.getText());
+        // Botão de salvar Cliente 
+        //Método de salvar criente 
+        modelCliente = new Cliente(); //Objeto (Abaixo está especificado onde salvar (set) e qual texto será salvo)
+        modelCliente.setUsuNome(BarraNomeUsu1.getText()); 
         modelCliente.setUsuEmail(BarraEmailUsu.getText());
         modelCliente.setUsuCPF(BarraCPFUsu.getText());
         modelCliente.setUsuLogin(BarraLoginUsu.getText());
@@ -301,7 +302,8 @@ public class MenuCliente extends javax.swing.JFrame {
         controleCliente.salvarClienteControle(modelCliente);
         formularioUsuVazio();
     }//GEN-LAST:event_btnSalvarClienteActionPerformed
-
+    
+    //Verifica se os campos estão preenchidos 
     private void formularioUsuVazio(){
         if((BarraNomeUsu1.getText().length() > 0) 
                 && (BarraCPFUsu.getText().length() > 0)
@@ -350,6 +352,7 @@ public class MenuCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaLogin objeto5 = new TelaLogin();
         objeto5.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnSairClienteActionPerformed
 
     private void btnPesquisaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaClienteActionPerformed
@@ -377,7 +380,7 @@ public class MenuCliente extends javax.swing.JFrame {
     }          
     
     private void btnAtuaCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtuaCliente1ActionPerformed
-        // Pegar o id e buscar noo banco
+        // Pegar o id e buscar no banco
         modelCliente = new Cliente();
         int linha = tblcliente.getSelectedRow();
         if (linha <0) {
@@ -393,19 +396,19 @@ public class MenuCliente extends javax.swing.JFrame {
             BarraSenhaUsu1.setText(modelCliente.getUsuSenha());        
             
             
-            
-            //JOptionPane.showMessageDialog(this, "Cliente atualizado!");
-        }        
+                    }        
     }//GEN-LAST:event_btnAtuaCliente1ActionPerformed
 
     private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
         // TODO add your handling code here:
-        TelaTipCad objeto1 = new TelaTipCad();
+        TelaTipCad objeto1 = new TelaTipCad(); //Criei uma instância que gera um objeto
         objeto1.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnVoltar1ActionPerformed
 
     private void btnExcluirCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCliente2ActionPerformed
         // TODO add your handling code here:
+        //Excluir cliente
         int linha = tblcliente.getSelectedRow();
         if (linha <0) {
             JOptionPane.showMessageDialog(this, "Selecione um cliente!");
@@ -420,7 +423,7 @@ public class MenuCliente extends javax.swing.JFrame {
 
     private void btnLimpaCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpaCliente1ActionPerformed
         // TODO add your handling code here:
-        limparFormularioUsu();
+        limparFormularioUsu(); //Limpa os campos
     }//GEN-LAST:event_btnLimpaCliente1ActionPerformed
 
     private void txtLoginUsu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginUsu1ActionPerformed

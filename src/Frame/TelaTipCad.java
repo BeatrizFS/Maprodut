@@ -123,6 +123,7 @@ public class TelaTipCad extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaLogin objeto4 = new TelaLogin();
         objeto4.setVisible(true);
+        dispose();
         
     }//GEN-LAST:event_btnVoltar3ActionPerformed
 
@@ -130,6 +131,7 @@ public class TelaTipCad extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaCadEmp objeto8 = new TelaCadEmp();
         objeto8.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnEmpresa1ActionPerformed
 
     /**

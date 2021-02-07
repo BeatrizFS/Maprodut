@@ -389,24 +389,9 @@ public class TabEndereco extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaLogin objeto5 = new TelaLogin();
         objeto5.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnSairLocEmpActionPerformed
-    
-//    /**
-//     * Limpar formúlario de cadastro de empresa
-//     * @param void 
-//     */
-//    private void limparFormularioEmp(){
-//        BarraEmailEmp.setText("");
-//        BarraNomeEmp.setText("");
-//        BarraFoneEmp.setText("");
-//        BarraCnpj.setText("");
-//        BarraEndereco.setText("");
-//        BarraBairro.setText("");
-//        BarraCidade.setText("");
-//        BarraNumero.setText("");
-//        BarraUF.setText("");        
-//    }
-    
+    //Carrega os dados na tela 
     private void carregarEmpresa(){
         listaEmpresa = controleEmpresa.getListaEmpresaControle();
         DefaultTableModel modelo4 = (DefaultTableModel) tblPesquisaEmp.getModel();
@@ -432,6 +417,7 @@ public class TabEndereco extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaTipCad objeto5 = new TelaTipCad();
         objeto5.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnVoltarTipActionPerformed
 
     private void txtNumeroEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroEmpActionPerformed
@@ -460,10 +446,10 @@ public class TabEndereco extends javax.swing.JFrame {
 
     private void btnPesquisaEmp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaEmp1ActionPerformed
         // TODO add your handling code here:
-        pesquisarEmpresa(BarraPesEndEMp.getText());
+        pesquisarEmpresa(BarraPesEndEMp.getText()); //Pesquisa a Empresa
         
     }//GEN-LAST:event_btnPesquisaEmp1ActionPerformed
-    
+        //Metódo de pesquisa 
         private void pesquisarEmpresa(String empresa){
         DefaultTableModel modelo3 = (DefaultTableModel) tblPesquisaEmp.getModel();
         modelo3.setNumRows(0);
@@ -490,6 +476,7 @@ public class TabEndereco extends javax.swing.JFrame {
     
     private void btnExibirInfEmp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirInfEmp1ActionPerformed
         // TODO add your handling code here:
+        //Exibi a empresa
         modelEmpresa = new Empresa();
         int linha = tblPesquisaEmp.getSelectedRow();
         if (linha <0) {

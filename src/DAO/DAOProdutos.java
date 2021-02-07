@@ -17,7 +17,13 @@ import java.util.List;
 import java.sql.ResultSet;
 
 /**
- *
+ * Utilizamos
+ * conectar(); para conectar com o banco de dados
+ * desconectar(); para desconectar com o bando de dados
+ */
+
+/**
+ * Herança
  * @author beatr
  */
 public class DAOProdutos extends ConexaoSQLite {
@@ -45,7 +51,10 @@ public class DAOProdutos extends ConexaoSQLite {
         desconectar();
         return true;
     }
-    
+     /**
+     * Faz com que os dados aparecam na tabela 
+     * ArrayLista
+     */
     public List<Produtos> getListaProdutosDAO(){
         List<Produtos> listaProdutos = new ArrayList<>();
         Produtos modelProdutos = new Produtos();
@@ -77,6 +86,11 @@ public class DAOProdutos extends ConexaoSQLite {
         desconectar();
         return listaProdutos;
     }
+   /**
+     * Excluir um Produto do banco de dados pelo código
+     * @param pCodigo
+     * @return boolean
+     */    
     public boolean excluirProdutosDAO(int pCodigo) {
         conectar();
         PreparedStatement preparedStatement;
@@ -101,6 +115,10 @@ public class DAOProdutos extends ConexaoSQLite {
         this.desconectar();
         return true;
     }
+     /* Exibir os dados ao clicar em uma linha da tabela
+     * @param pCodigoCliente
+     * @return 
+     */
     public Produtos getProdutosDAO(int pCodigoProdutos){
         Produtos modelProdutos = new Produtos();
         conectar();
@@ -135,6 +153,12 @@ public class DAOProdutos extends ConexaoSQLite {
         desconectar();
         return modelProdutos;
     }
+    
+    /**
+     * Pesquisa os Produto pelo nome na tabela
+     * @param descricao
+     * @return 
+     */
         public List<Produtos> readForProdutos(String descricao){
         conectar();    
         Produtos modelProdutos = new Produtos();

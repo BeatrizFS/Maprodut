@@ -16,17 +16,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.ResultSet;
 
+/**
+ * Utilizamos
+ * conectar(); para conectar com o banco de dados
+ * desconectar(); para desconectar com o bando de dados
+ */
         
 /**
- *
+ * Herança
  * @author beatr
  */
 public class DAOCliente extends ConexaoSQLite {
-    
+    /**Método public salvarUsuarioDAO
+     * Identifica se o usuário foi salvo ou não 
+     * @param pCliente
+     * @return 
+     */
     public boolean salvarUsuarioDAO(Cliente pCliente){
-        conectar();
+        conectar(); 
         //executar sql
-        String sql = "INSERT INTO tbl_cliente("
+        String sql = "INSERT INTO tbl_cliente(" //Inseri usuário no banco de dados 
                 +"usu_nome, "
                 +"usu_email, "
                 +"usu_cpf, "
@@ -43,15 +52,18 @@ public class DAOCliente extends ConexaoSQLite {
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(DAOCliente.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
+            return false; 
         }
         
-        desconectar();
-        return true;
+        desconectar(); 
+        return true; 
     }
-    
+    /**
+     * Faz com que os dados aparecam na tabela 
+     * ArrayLista
+     */
     public List<Cliente> getListaClienteDAO(){
-        List<Cliente> listaCliente = new ArrayList<>();
+        List<Cliente> listaCliente = new ArrayList<>(); //Criei uma lista vazia que vai receber os clientes
         Cliente modelCliente = new Cliente();
         conectar();
         ResultSet resultSet = null;
@@ -84,7 +96,7 @@ public class DAOCliente extends ConexaoSQLite {
     }
     
     /**
-     * Excluir um Cliente do banco de dados pelo codigo
+     * Excluir um Cliente do banco de dados pelo código
      * @param pCodigo
      * @return boolean
      */
@@ -154,6 +166,11 @@ public class DAOCliente extends ConexaoSQLite {
         return modelCliente;
     }
     
+    /**
+     * Verificar se o cliente está cadastrado 
+     * @param Cliente
+     * @return 
+     */
     public boolean validarCliente(Cliente Cliente){
         conectar();
         ResultSet resultSet = null;
@@ -195,6 +212,11 @@ public class DAOCliente extends ConexaoSQLite {
         }  
     }
     
+    /**
+     * Pesquisa os clientes pelo nome na tabela
+     * @param nome
+     * @return 
+     */
     public List<Cliente> readForNome(String nome){
         conectar();
         Cliente modelCliente = new Cliente();

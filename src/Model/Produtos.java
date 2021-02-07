@@ -6,11 +6,11 @@
 package Model;
 
 /**
- *
- * @author beatr
+ * Foi criada a classe Produtos
+ * @author beatriz
  */
 public class Produtos {
-    
+    //Abaixo estão os atributos referentes a classe Produtos
     private int proId;
     private String proEmpresa;
     private String proDescricao;

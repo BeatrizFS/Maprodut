@@ -26,14 +26,20 @@ public class ControleEmpresa {
         return this.dAOEmpresa.salvarEmpresaDAO(modelEmpresa);
     }
 
+    //Lista os dados na tabela
     public List<Empresa> getListaEmpresaControle() {
         return this.dAOEmpresa.getListaEmpresaDAO();
     }
-
+    
+    /**
+     * Excluir um Empresa do banco de dados pelo código
+     * @param codigo
+     * @return boolean
+     */
     public boolean excluirEmpresaControle(int codigo) {
         return this.dAOEmpresa.excluirEmpresaDAO(codigo);
     }
-
+    //Exibir os dados ao clicar em uma linha da tabela + botão exibir
     public Empresa getEmpresaControle(int pCodigo) {
         return this.dAOEmpresa.getEmpresaDAO(pCodigo);
     }

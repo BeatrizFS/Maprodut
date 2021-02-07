@@ -27,21 +27,26 @@ public class ConexaoSQLite {
     public boolean conectar() {
 
         try {
-            String url = "jdbc:sqlite:BancoDados/database.db";
+            String url = "jdbc:sqlite:BancoDados/database.db"; //Caminho do banco de dados
             
             this.conexao = DriverManager.getConnection(url);
             System.out.println("Conectado");
 
         } catch (SQLException e) {
             System.err.println(e.getMessage());
-            return false;
+            return false; //Se não conectar com o banco de dados
         }
 
-        return true;
+        return true; //Se conectar com o banco de dados
     }
+    
+    /**
+     * Desconecta do banco de dados
+     * @return 
+     */
 
     public boolean desconectar() {
-
+        //try-catch para tratar exceções 
         try {
             if (this.conexao.isClosed() == false) {
                 this.conexao.close();
@@ -50,9 +55,9 @@ public class ConexaoSQLite {
             
         } catch (SQLException e) {
             System.err.println(e.getMessage());
-            return false;
+            return false; //Se não desconectar com o banco de daos 
         }
-        return true;
+        return true; //Se desconectar com o banco de daos 
     }
 
     /**

@@ -169,6 +169,7 @@ public class TelaPesquisa extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaLogin objeto9 = new TelaLogin();
         objeto9.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnsair2ActionPerformed
     
     private void carregarProdutos(){

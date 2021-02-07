@@ -6,11 +6,13 @@
 package Model;
 
 /**
- *
- * @author beatr
+ * Foi criada a classe Cliente 
+ * @author beatriz
  */
+
+//Abstração 
 public class Cliente {
-    
+    //Abaixo estão os atributos referentes a classe Cliente
     private int usuId;
     private String usuNome;
     private String usuCPF;
@@ -18,6 +20,10 @@ public class Cliente {
     private String usuLogin;
     private String usuSenha;
 
+/**
+ * Fizemos os get (pegar) e set (setar)
+ * Encapsulamento 
+ */    
     /**
      * @return the usuId
      */
