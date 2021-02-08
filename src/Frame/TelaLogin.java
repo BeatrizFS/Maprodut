@@ -151,7 +151,7 @@ public class TelaLogin extends javax.swing.JFrame {
          TelaPesquisa objeto1 = new TelaPesquisa();
          objeto1.setVisible(true);
      }else{
-         JOptionPane.showMessageDialog(null, "Usuário ou Senha incorretos!");
+         JOptionPane.showMessageDialog(null, "Usuário ou Senha incorretos!(Caso seja administrador ignorar essa mensagem)");
      }        
     }//GEN-LAST:event_btnAcessarActionPerformed
 

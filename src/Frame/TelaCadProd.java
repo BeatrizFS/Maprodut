@@ -138,7 +138,7 @@ public class TelaCadProd extends javax.swing.JFrame {
                 BarraPrecoActionPerformed(evt);
             }
         });
-        jPanel1.add(BarraPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 170, -1));
+        jPanel1.add(BarraPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 130, -1));
 
         btnVoltar.setBackground(new java.awt.Color(255, 229, 77));
         btnVoltar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -222,14 +222,14 @@ public class TelaCadProd extends javax.swing.JFrame {
         Preco4.setEditable(false);
         Preco4.setBackground(new java.awt.Color(255, 255, 255));
         Preco4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        Preco4.setText("Preço:");
+        Preco4.setText("Preço R$");
         Preco4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         Preco4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Preco4ActionPerformed(evt);
             }
         });
-        jPanel1.add(Preco4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 50, -1));
+        jPanel1.add(Preco4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 60, -1));
 
         btnLimpar.setBackground(new java.awt.Color(255, 229, 77));
         btnLimpar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -357,10 +357,6 @@ public class TelaCadProd extends javax.swing.JFrame {
         formularioProVazio();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-    private void BarraPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BarraPrecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BarraPrecoActionPerformed
-
     private void btnSair1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSair1ActionPerformed
         // TODO add your handling code here:
         TelaLogin objeto9 = new TelaLogin();
@@ -396,10 +392,14 @@ public class TelaCadProd extends javax.swing.JFrame {
 
     private void btnVoltar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar2ActionPerformed
         // TODO add your handling code here:
-        TelaCadProd objeto9 = new TelaCadProd();
+        TelaTipCad objeto9 = new TelaTipCad();
         objeto9.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltar2ActionPerformed
+
+    private void BarraPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BarraPrecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BarraPrecoActionPerformed
 
     /**
      * @param args the command line arguments

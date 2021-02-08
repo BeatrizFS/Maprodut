@@ -163,6 +163,7 @@ public class TelaPesquisa extends javax.swing.JFrame {
         // TODO add your handling code here:
         TabEndereco objeto9 = new TabEndereco();
         objeto9.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnPesqEndActionPerformed
 
     private void btnsair2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsair2ActionPerformed
