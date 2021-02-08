@@ -415,7 +415,7 @@ public class TabEndereco extends javax.swing.JFrame {
     
     private void btnVoltarTipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarTipActionPerformed
         // TODO add your handling code here:
-        TelaTipCad objeto5 = new TelaTipCad();
+        TelaPesquisa objeto5 = new TelaPesquisa();
         objeto5.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarTipActionPerformed

@@ -111,6 +111,7 @@ public class TelaTipCad extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaCadProd objeto3 = new TelaCadProd();
         objeto3.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnProdutosActionPerformed
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
